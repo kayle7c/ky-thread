@@ -595,6 +595,11 @@
               <FileType>1</FileType>
               <FilePath>..\ky-thread\src\scheduler.c</FilePath>
             </File>
+            <File>
+              <FileName>object.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\src\object.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
