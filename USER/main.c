@@ -42,6 +42,9 @@ void test2_thread_entry()
 
 int main()
 {
+		rt_hw_interrupt_disable();   //先关中断，防止还没有初始化好就开始调度
+	
+		SysTick_Config( SystemCoreClock / KY_TICK_PER_SECOND );
 	
 		delay_init();
 	
@@ -69,5 +72,9 @@ int main()
 		ky_system_scheduler_start();
 }
 			
-
+void Systick_Handle(void)
+{
+		
+	
+}
 

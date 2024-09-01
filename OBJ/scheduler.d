@@ -4,3 +4,4 @@
 ..\obj\scheduler.o: ..\..\os\kyconfig.h
 ..\obj\scheduler.o: ..\ky-thread\include\list.h
 ..\obj\scheduler.o: ..\ky-thread\libcpu\hw_settings.h
+..\obj\scheduler.o: ..\ky-thread\include\thread.h

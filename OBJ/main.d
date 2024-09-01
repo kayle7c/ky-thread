@@ -37,3 +37,4 @@
 ..\obj\main.o: ..\..\os\kyconfig.h
 ..\obj\main.o: ..\ky-thread\include\list.h
 ..\obj\main.o: ..\ky-thread\libcpu\hw_settings.h
+..\obj\main.o: ..\ky-thread\include\thread.h

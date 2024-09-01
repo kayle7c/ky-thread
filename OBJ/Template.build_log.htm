@@ -22,59 +22,21 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 C:\Users\12396\Desktop\ѧϰ\Ƕ��ʽ\os\USER\Template.uvprojx
-Project File Date:  08/31/2024
+Project File Date:  09/01/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil\ARM\ARMCC\Bin'
 Build target 'Template'
 compiling scheduler.c...
-..\..\os\kyconfig.h(9): warning:  #1-D: last line of file ends without a newline
+..\..\os\kyconfig.h(11): warning:  #1-D: last line of file ends without a newline
   #endif
-..\ky-thread\src\scheduler.c(75): warning:  #1-D: last line of file ends without a newline
-  	
+..\ky-thread\src\scheduler.c(129): warning:  #1-D: last line of file ends without a newline
+  }
 ..\ky-thread\src\scheduler.c: 2 warnings, 0 errors
-compiling hw_settings.c...
-..\..\os\kyconfig.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\libcpu\hw_settings.c(68): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\libcpu\hw_settings.c: 2 warnings, 0 errors
-compiling object.c...
-..\..\os\kyconfig.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\src\object.c(137): warning:  #1-D: last line of file ends without a newline
-  };
-..\ky-thread\src\object.c: 2 warnings, 0 errors
-compiling thread.c...
-..\..\os\kyconfig.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\src\thread.c(23): warning:  #1254-D: arithmetic on pointer to void or function type
-  														 thread->stack_addr+thread->stack_size-4);
-..\ky-thread\src\thread.c(23): warning:  #1254-D: arithmetic on pointer to void or function type
-  														 thread->stack_addr+thread->stack_size-4);
-..\ky-thread\src\thread.c(26): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\src\thread.c: 4 warnings, 0 errors
-compiling main.c...
-..\..\os\kyconfig.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c(26): warning:  #223-D: function "ky_scheduler" declared implicitly
-  			ky_scheduler();
-main.c(39): warning:  #223-D: function "ky_scheduler" declared implicitly
-  			ky_scheduler();
-main.c(49): warning:  #223-D: function "ky_system_scheduler_init" declared implicitly
-  		ky_system_scheduler_init();
-main.c(54): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
-  									test1_thread_entry,
-main.c(63): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
-  									test2_thread_entry,
-main.c(69): warning:  #223-D: function "ky_system_scheduler_start" declared implicitly
-  		ky_system_scheduler_start();
-main.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=1756 RO-data=268 RW-data=52 ZI-data=3212  
+Program Size: Code=2144 RO-data=268 RW-data=84 ZI-data=3780  
 FromELF: creating hex file...
-"..\OBJ\Template.axf" - 0 Error(s), 17 Warning(s).
+"..\OBJ\Template.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 

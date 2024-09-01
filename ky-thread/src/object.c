@@ -133,5 +133,36 @@ static struct ky_object_information ky_object_container[KY_Object_Info_Unknown] 
     },
 #endif
 
-		
 };
+
+struct ky_object_information *ky_object_get_information(enum ky_object_class_type type)
+{
+		for(int index=0;index<KY_Object_Class_Unknown;index++)
+		{
+				if(ky_object_container[index].type==type) return &ky_object_container[index];
+		}
+		
+		return KY_NULL;
+}
+
+void ky_object_init(struct ky_object *object,
+										enum ky_object_class_type type,
+										const char *name)
+{
+		register ky_base_t temp;
+		struct ky_object_information *information;
+	
+		information=ky_object_get_information(type);
+	
+		object->type = type | KY_Object_Class_Static;
+	
+		ky_strncpy(object->name, name, KY_NAME_MAX);
+	
+		temp = rt_hw_interrupt_disable();
+	
+		ky_list_insert_after(&(information->object_list), &(object->list));
+	
+		rt_hw_interrupt_enable(temp);
+}
+
+

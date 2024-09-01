@@ -4,3 +4,4 @@
 ..\obj\object.o: ..\..\os\kyconfig.h
 ..\obj\object.o: ..\ky-thread\include\list.h
 ..\obj\object.o: ..\ky-thread\libcpu\hw_settings.h
+..\obj\object.o: ..\ky-thread\include\thread.h

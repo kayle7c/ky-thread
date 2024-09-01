@@ -2,6 +2,8 @@
 #include "list.h"
 #include "hw_settings.h"
 
+extern struct ky_thread *ky_current_thread;
+
 ky_err_t ky_thread_init(struct ky_thread *thread,
 												const char *name,
 												void (*entry)(void *parameter),
@@ -10,6 +12,8 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 												ky_uint32_t stack_size)
 
 {
+		ky_object_init((ky_object_t)thread, KY_Object_Class_Thread, name);
+	
 		ky_list_init(&(thread->tlist));
 		
 		thread->entry=(void *)entry;
@@ -23,4 +27,15 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 														 thread->stack_addr+thread->stack_size-4);
 	
 		return KY_EOK;
+}
+
+void ky_thread_delay(ky_tick_t tick)
+{
+		struct ky_thread *thread;
+	
+		thread=ky_current_thread;
+	
+		thread->remaining_tick=tick;
+	
+		ky_scheduler();
 }

@@ -13,8 +13,10 @@ typedef unsigned long         ky_ubase_t;
 
 typedef ky_base_t         		ky_err_t;
 typedef ky_ubase_t            ky_size_t;
+typedef ky_uint32_t           ky_tick_t;
 
 #define ky_inline             static __inline
+#define ALIGN(n)              __attribute__((aligned(n)))
 	
 #define KY_EOK                          0               /**< There is no error */
 #define KY_ERROR                        1               /**< A generic error happens */
@@ -43,7 +45,7 @@ typedef struct ky_list_node ky_list_t;
 
 struct ky_thread
 {
-		char name[KY_NAMA_MAX];
+		char name[KY_NAME_MAX];
 		ky_uint8_t type;
 		ky_uint8_t flag;
 		ky_list_t list;          //对象链表节点
@@ -55,12 +57,14 @@ struct ky_thread
 		ky_uint32_t stack_size;    
 
 		ky_list_t	 tlist;        //线程链表节点
+	
+		ky_ubase_t remaining_tick;
 };
 typedef struct ky_thread *ky_thread_t;
 
 struct ky_object
 {
-		char name[KY_NAMA_MAX];
+		char name[KY_NAME_MAX];
 		ky_uint8_t type;
 		ky_uint8_t flag;
 		ky_list_t list;

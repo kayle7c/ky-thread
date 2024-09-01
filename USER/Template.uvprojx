@@ -600,6 +600,21 @@
               <FileType>1</FileType>
               <FilePath>..\ky-thread\src\object.c</FilePath>
             </File>
+            <File>
+              <FileName>kservice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\src\kservice.c</FilePath>
+            </File>
+            <File>
+              <FileName>idle.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\src\idle.c</FilePath>
+            </File>
+            <File>
+              <FileName>clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\src\clock.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
