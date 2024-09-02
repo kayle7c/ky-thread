@@ -19,11 +19,9 @@ void test1_thread_entry()
 		while(1)
 		{
 			flag1=1;
-			delay_ms(100);
+			ky_thread_delay(2);
 			flag1=0;
-			delay_ms(100);
-			
-			ky_scheduler();
+			ky_thread_delay(2);
 		}
 }
 
@@ -32,11 +30,9 @@ void test2_thread_entry()
 		while(1)
 		{
 			flag2=1;
-			delay_ms(100);
+			ky_thread_delay(2);
 			flag2=0;
-			delay_ms(100);
-			
-			ky_scheduler();
+			ky_thread_delay(2);
 		}
 }
 
@@ -46,10 +42,11 @@ int main()
 	
 		SysTick_Config( SystemCoreClock / KY_TICK_PER_SECOND );
 	
-		delay_init();
-	
 	  //初始化调度器
 		ky_system_scheduler_init();
+		
+		//初始化空闲线程
+		ky_thread_idle_init();
 	
 	  //创建线程
 	  ky_thread_init(&ky_test1_thread,
@@ -72,9 +69,12 @@ int main()
 		ky_system_scheduler_start();
 }
 			
-void Systick_Handle(void)
+void SysTick_Handler(void)
 {
-		
-	
+    ky_interrupt_enter();
+
+    ky_tick_increase();
+
+    ky_interrupt_leave();
 }
 

@@ -13,6 +13,8 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 												void *parameter,
 												void *stack_start,
 												ky_uint32_t stack_size);
+												
+void ky_thread_delay(ky_tick_t tick);
 
 //内核对象接口
 void ky_object_init(struct ky_object *object,
@@ -25,7 +27,14 @@ void ky_system_scheduler_start(void);
 void ky_scheduler(void);
 										
 //空闲线程接口
-void ky_thread_idle_init(void);										
+void ky_thread_idle_init(void);						
+
+//中断接口
+void ky_interrupt_enter(void);
+void ky_interrupt_leave(void);	
+										
+//时钟接口
+void ky_tick_increase(void);										
 										
 										
 //内核服务函数接口

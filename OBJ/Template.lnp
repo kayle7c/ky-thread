@@ -38,6 +38,7 @@
 "..\obj\kservice.o"
 "..\obj\idle.o"
 "..\obj\clock.o"
+"..\obj\irq.o"
 --strict --scatter "..\OBJ\Template.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

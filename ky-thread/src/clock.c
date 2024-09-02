@@ -7,6 +7,8 @@ void ky_tick_increase(void)
 {
 		struct ky_thread *thread;
 	
+		ky_tick++;
+	
 		for(ky_ubase_t i=0;i<KY_THREAD_PRIORITY_MAX;i++)//±éÀú¾ÍÐ÷ÐòÁÐ
 		{
 				thread=ky_list_entry(ky_thread_priority_table[i].next,struct ky_thread,tlist);
