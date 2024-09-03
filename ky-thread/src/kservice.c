@@ -20,3 +20,15 @@ char *ky_strncpy(char *dst,const char*src,ky_base_t n)
 
     return (dst);
 }
+
+int __ky_ffs(int value)
+{
+		if(value==0) return 0;
+		int position=0;
+		while((value&1)==0)
+		{
+				value >>= 1;
+				position++;
+		}	
+		return position;
+}

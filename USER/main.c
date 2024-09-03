@@ -40,10 +40,10 @@ int main()
 {
 		rt_hw_interrupt_disable();   //先关中断，防止还没有初始化好就开始调度
 	
-		SysTick_Config( SystemCoreClock / KY_TICK_PER_SECOND );
+		SysTick_Config( SystemCoreClock / 3000 );
 	
 	  //初始化调度器
-		ky_system_scheduler_init();
+		ky_system_schedule_init();
 		
 		//初始化空闲线程
 		ky_thread_idle_init();
@@ -54,19 +54,23 @@ int main()
 									test1_thread_entry,
 									KY_NULL,
 									&ky_test1_thread_stack[0],
-									sizeof(ky_test1_thread_stack));
+									sizeof(ky_test1_thread_stack),
+									2);
 	  //将创建好的线程加入到就绪队列
-		ky_list_insert_before(&(ky_thread_priority_table[0]),&(ky_test1_thread.tlist));
+		//ky_list_insert_before(&(ky_thread_priority_table[0]),&(ky_test1_thread.tlist));
+		ky_thread_startup(&ky_test1_thread);						
 	
 		ky_thread_init(&ky_test2_thread,
 									"test2",
 									test2_thread_entry,
 									KY_NULL,
 									&ky_test2_thread_stack[0],
-									sizeof(ky_test2_thread_stack));
-		ky_list_insert_before(&(ky_thread_priority_table[1]),&(ky_test2_thread.tlist));
+									sizeof(ky_test2_thread_stack),
+									3);
+		//ky_list_insert_before(&(ky_thread_priority_table[1]),&(ky_test2_thread.tlist));
+		ky_thread_startup(&ky_test2_thread);								
 	
-		ky_system_scheduler_start();
+		ky_system_schedule_start();
 }
 			
 void SysTick_Handler(void)

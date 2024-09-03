@@ -27,7 +27,8 @@ void ky_thread_idle_init(void)
 									 ky_thread_idle_entry,
 									 KY_NULL,
 									 &ky_thread_stack[0],
-									 sizeof(ky_thread_stack));
+									 sizeof(ky_thread_stack),
+									 KY_THREAD_PRIORITY_MAX-1);
 		
-		ky_list_insert_before( &(ky_thread_priority_table[KY_THREAD_PRIORITY_MAX-1]),&(idle.tlist) );
+		ky_thread_startup(&idle);
 }

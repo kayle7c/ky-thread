@@ -38,4 +38,9 @@ ky_inline void ky_list_remove(ky_list_t *n)
 		n->next=n->prev=n;
 }
 
+ky_inline int ky_list_isempty(const ky_list_t *l)
+{
+		return l->next==l;
+}
+
 #endif

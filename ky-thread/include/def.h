@@ -30,6 +30,19 @@ typedef ky_uint32_t           ky_tick_t;
 #define KY_EINTR                        9               /**< Interrupted system call */
 #define KY_EINVAL                       10              /**< Invalid argument */
 	
+#define KY_THREAD_INIT                  0x00                /* 初始态 */
+#define KY_THREAD_READY                 0x01                /* 就绪态 */
+#define KY_THREAD_SUSPEND               0x02                /* 挂起态 */
+#define KY_THREAD_RUNNING               0x03                /* 运行态 */
+#define KY_THREAD_BLOCK                 KY_THREAD_SUSPEND   /* 阻塞态 */
+#define KY_THREAD_CLOSE                 0x04                /* 关闭态 */
+#define KY_THREAD_STAT_MASK             0x0f
+
+#define KY_THREAD_STAT_SIGNAL           0x10
+#define KY_THREAD_STAT_SIGNAL_READY     (KY_THREAD_STAT_SIGNAL | KY_THREAD_READY)
+#define KY_THREAD_STAT_SIGNAL_SUSPEND   0x20
+#define KY_THREAD_STAT_SIGNAL_MASK      0xf0
+
 
 #define KY_ALIGN_DOWN(size, align)      ((size) & ~((align) - 1))
 
@@ -58,7 +71,14 @@ struct ky_thread
 
 		ky_list_t	 tlist;        //线程链表节点
 	
-		ky_ubase_t remaining_tick;
+		ky_ubase_t remaining_tick;  //延时时间
+	
+		ky_uint8_t  current_priority;     
+    ky_uint8_t  init_priority;       
+    ky_uint32_t number_mask;          
+
+    ky_err_t    error;             
+    ky_uint8_t  stat;                
 };
 typedef struct ky_thread *ky_thread_t;
 
