@@ -60,7 +60,7 @@ void ky_system_schedule_start(void)
 		register ky_ubase_t highest_ready_priority;
 	
 		//获取最高优先级
-		highest_ready_priority=__ky_ffs(ky_thread_ready_priority_group)-1;
+		highest_ready_priority=__ky_ffs(ky_thread_ready_priority_group);
 	
 		//获取最高优先级对应的线程
 		to_thread = ky_list_entry(ky_thread_priority_table[highest_ready_priority].next,
@@ -146,7 +146,7 @@ void ky_schedule(void)
 		level = rt_hw_interrupt_disable();		
 		
 		//获取最高优先级
-		highest_ready_priority=__ky_ffs(ky_thread_ready_priority_group)-1;
+		highest_ready_priority=__ky_ffs(ky_thread_ready_priority_group);
 	
 		//获取最高优先级对应的线程
 		to_thread = ky_list_entry(ky_thread_priority_table[highest_ready_priority].next,
@@ -155,8 +155,7 @@ void ky_schedule(void)
 		
 		//如果目标线程不是当前的线程，就需要调度												
 		if(to_thread != ky_current_thread)
-		{
-				ky_current_priority = (ky_uint8_t)highest_ready_priority;
+		{				ky_current_priority = (ky_uint8_t)highest_ready_priority;
 				from_thread=ky_current_thread;
 				ky_current_thread=to_thread;
 			
@@ -169,9 +168,7 @@ void ky_schedule(void)
 		{
 				rt_hw_interrupt_enable(level);
 		}
-		
 #endif	
-		rt_hw_context_switch((ky_uint32_t)&from_thread->sp,(ky_uint32_t)&to_thread->sp);
 }
 
 void ky_schedule_insert_thread(struct ky_thread *thread)
@@ -182,7 +179,7 @@ void ky_schedule_insert_thread(struct ky_thread *thread)
 	
 		ky_list_insert_before(&(ky_thread_priority_table[thread->current_priority]),&(thread->tlist));
 	
-		ky_thread_ready_priority_group&= ~thread->number_mask;
+		ky_thread_ready_priority_group |= thread->number_mask;
 	
 		rt_hw_interrupt_enable(temp);
 }

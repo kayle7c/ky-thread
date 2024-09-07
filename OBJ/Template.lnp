@@ -30,6 +30,7 @@
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"
+"..\obj\led.o"
 "..\obj\hw_settings.o"
 "..\obj\context_rvds.o"
 "..\obj\thread.o"

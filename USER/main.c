@@ -2,6 +2,7 @@
 #include "delay.h"
 #include "usart.h"// RX->9 TX->A10
 #include "thread.h"
+#include "led.h"
 
 ky_uint8_t flag1;
 ky_uint8_t flag2;
@@ -19,9 +20,11 @@ void test1_thread_entry()
 		while(1)
 		{
 			flag1=1;
+			GPIO_SetBits(GPIOB,GPIO_Pin_8); 
 			ky_thread_delay(2);
-			flag1=0;
-			ky_thread_delay(2);
+//			flag1=0;
+//			GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
+//			ky_thread_delay(2);
 		}
 }
 
@@ -30,17 +33,21 @@ void test2_thread_entry()
 		while(1)
 		{
 			flag2=1;
+			GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
 			ky_thread_delay(2);
-			flag2=0;
-			ky_thread_delay(2);
+//			flag2=0;
+//			GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
+//			ky_thread_delay(2);
 		}
 }
 
 int main()
 {
+		LED_Init();
+	
 		rt_hw_interrupt_disable();   //先关中断，防止还没有初始化好就开始调度
 	
-		SysTick_Config( SystemCoreClock / 3000 );
+		SysTick_Config( SystemCoreClock / 100 );
 	
 	  //初始化调度器
 		ky_system_schedule_init();
