@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Sep 07 20:07:52 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Sep 08 17:47:56 2024
 <BR><P>
 <H3>Maximum Stack Usage =        112 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -443,10 +443,12 @@ Global Symbols
 <P><STRONG><a name="[53]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test2_thread_entry
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test1_thread_entry
 </UL>
 
 <P><STRONG><a name="[6e]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test1_thread_entry
+<BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test2_thread_entry
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test1_thread_entry
 </UL>
 
 <P><STRONG><a name="[5]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.HardFault_Handler))
@@ -573,7 +575,7 @@ Global Symbols
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_delay
 </UL>
 
-<P><STRONG><a name="[63]"></a>ky_schedule_insert_thread</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, scheduler.o(i.ky_schedule_insert_thread))
+<P><STRONG><a name="[63]"></a>ky_schedule_insert_thread</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, scheduler.o(i.ky_schedule_insert_thread))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ky_schedule_insert_thread
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
@@ -681,18 +683,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[3b]"></a>test1_thread_entry</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, main.o(i.test1_thread_entry))
+<P><STRONG><a name="[3b]"></a>test1_thread_entry</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, main.o(i.test1_thread_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = test1_thread_entry &rArr; ky_thread_delay &rArr; ky_schedule
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_delay
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[3c]"></a>test2_thread_entry</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, main.o(i.test2_thread_entry))
+<P><STRONG><a name="[3c]"></a>test2_thread_entry</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, main.o(i.test2_thread_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = test2_thread_entry &rArr; ky_thread_delay &rArr; ky_schedule
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_delay
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)

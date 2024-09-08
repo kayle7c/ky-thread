@@ -63,13 +63,13 @@ struct ky_thread
 		ky_uint8_t flag;
 		ky_list_t list;          //对象链表节点
 	
+		ky_list_t	 tlist;        //线程链表节点
+	
 		void       *sp;                               
 		void       *entry;                                  
 		void       *parameter;                             
 		void       *stack_addr;                             
 		ky_uint32_t stack_size;    
-
-		ky_list_t	 tlist;        //线程链表节点
 	
 		ky_ubase_t remaining_tick;  //延时时间
 	

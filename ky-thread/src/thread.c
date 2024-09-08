@@ -24,9 +24,9 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 		thread->stack_addr=stack_start;
 		thread->stack_size=stack_size;
 		
-		thread->sp=ky_hw_stack_init(thread->entry,
+		thread->sp=(void *)ky_hw_stack_init(thread->entry,
 														 thread->parameter,
-														 thread->stack_addr+thread->stack_size-4);
+										(void *)((char *)thread->stack_addr+thread->stack_size-4));
 		
 		thread->init_priority=priority;
 		thread->current_priority=priority;
@@ -99,7 +99,7 @@ ky_err_t ky_thread_resume(ky_thread_t thread)
 ky_err_t ky_thread_startup(ky_thread_t thread)
 {
 		thread->current_priority=thread->init_priority;
-		thread->number_mask=1L<<thread->current_priority;
+		thread->number_mask=1L << thread->current_priority;
 	
 		//改变线程状态为挂起状态
 		thread->stat=KY_THREAD_SUSPEND;

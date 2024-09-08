@@ -12,6 +12,8 @@ extern ky_list_t ky_thread_priority_table[KY_THREAD_PRIORITY_MAX];
 struct ky_thread ky_test1_thread;
 struct ky_thread ky_test2_thread;
 
+ALIGN(KY_ALIGN_SIZE)
+
 ky_uint8_t ky_test1_thread_stack[512];
 ky_uint8_t ky_test2_thread_stack[512];
 
@@ -19,12 +21,10 @@ void test1_thread_entry()
 {
 		while(1)
 		{
-			flag1=1;
-			GPIO_SetBits(GPIOB,GPIO_Pin_8); 
-			ky_thread_delay(2);
-//			flag1=0;
-//			GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
-//			ky_thread_delay(2);
+				GPIO_SetBits(GPIOB,GPIO_Pin_8); 
+				ky_thread_delay(20); 		
+				GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
+        ky_thread_delay(20);
 		}
 }
 
@@ -32,12 +32,10 @@ void test2_thread_entry()
 {
 		while(1)
 		{
-			flag2=1;
-			GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
-			ky_thread_delay(2);
-//			flag2=0;
-//			GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
-//			ky_thread_delay(2);
+				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
+        ky_thread_delay(20); 		
+				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
+        ky_thread_delay(20);
 		}
 }
 
@@ -88,4 +86,3 @@ void SysTick_Handler(void)
 
     ky_interrupt_leave();
 }
-

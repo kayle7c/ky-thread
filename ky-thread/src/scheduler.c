@@ -155,7 +155,8 @@ void ky_schedule(void)
 		
 		//如果目标线程不是当前的线程，就需要调度												
 		if(to_thread != ky_current_thread)
-		{				ky_current_priority = (ky_uint8_t)highest_ready_priority;
+		{				
+				ky_current_priority = (ky_uint8_t)highest_ready_priority;
 				from_thread=ky_current_thread;
 				ky_current_thread=to_thread;
 			
@@ -176,6 +177,8 @@ void ky_schedule_insert_thread(struct ky_thread *thread)
 		register ky_base_t temp;
 	
 		temp=rt_hw_interrupt_disable();
+	
+		thread->stat = KY_THREAD_READY;
 	
 		ky_list_insert_before(&(ky_thread_priority_table[thread->current_priority]),&(thread->tlist));
 	
