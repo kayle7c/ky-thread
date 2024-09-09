@@ -42,3 +42,8 @@ void ky_tick_increase(void)
 #endif
 		ky_schedule();
 }
+
+ky_tick_t ky_tick_get(void)
+{
+		return ky_tick;
+}

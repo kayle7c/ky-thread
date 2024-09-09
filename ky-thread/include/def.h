@@ -48,40 +48,15 @@ typedef ky_uint32_t           ky_tick_t;
 
 #define KY_NULL                         (0)
 
-
+//链表结构体
 struct ky_list_node
 {
     struct ky_list_node *next;                        
     struct ky_list_node *prev;                     
 };
-typedef struct ky_list_node ky_list_t;                 
+typedef struct ky_list_node ky_list_t;           
 
-struct ky_thread
-{
-		char name[KY_NAME_MAX];
-		ky_uint8_t type;
-		ky_uint8_t flag;
-		ky_list_t list;          //对象链表节点
-	
-		ky_list_t	 tlist;        //线程链表节点
-	
-		void       *sp;                               
-		void       *entry;                                  
-		void       *parameter;                             
-		void       *stack_addr;                             
-		ky_uint32_t stack_size;    
-	
-		ky_ubase_t remaining_tick;  //延时时间
-	
-		ky_uint8_t  current_priority;     
-    ky_uint8_t  init_priority;       
-    ky_uint32_t number_mask;          
-
-    ky_err_t    error;             
-    ky_uint8_t  stat;                
-};
-typedef struct ky_thread *ky_thread_t;
-
+//对象结构体
 struct ky_object
 {
 		char name[KY_NAME_MAX];
@@ -116,6 +91,67 @@ struct ky_object_information
     ky_size_t object_size;//           (3) /* 对象大小 */
 };
 
+//时钟 定时器宏
+#ifndef KY_TIMER_SKIP_LIST_LEVEL
+#define KY_TIMER_SKIP_LIST_LEVEL          1
+#endif
+
+#define KY_TIMER_FLAG_DEACTIVATED       0x0     /* 定时器没有激活 */
+#define KY_TIMER_FLAG_ACTIVATED         0x1     /* 定时器已经激活 */
+#define KY_TIMER_FLAG_ONE_SHOT          0x0     /* 单次定时 */
+#define KY_TIMER_FLAG_PERIODIC          0x2     /* 周期定时 */
+
+#define KY_TIMER_FLAG_HARD_TIMER        0x0     /* 硬件定时器，定时器回调函数在 tick isr中调用 */
+
+#define KY_TIMER_FLAG_SOFT_TIMER        0x4     /* 软件定时器，定时器回调函数在定时器线程中调用 */、
+
+#define KY_TIMER_CTRL_SET_TIME          0x0     /* 设置定时器定时时间 */
+#define KY_TIMER_CTRL_GET_TIME          0x1     /* 获取定时器定时时间 */
+#define KY_TIMER_CTRL_SET_ONESHOT       0x2     /* 修改定时器为一次定时 */
+#define KY_TIMER_CTRL_SET_PERIODIC      0x3     /* 修改定时器为周期定时 */
+
+//定时器结构体
+struct ky_timer
+{
+		struct ky_object parent;
+		ky_list_t row[KY_TIMER_SKIP_LIST_LEVEL]; //定时器自身节点
+		void (*timer_func)(void *parameter);     //超时函数
+		void *parameter;                         //形参
+		ky_tick_t init_tick;                     //定时器需要延时的时间
+	  ky_tick_t timeout_tick;        					 //定时器实际超时的时间
+		
+};
+typedef struct ky_timer *ky_timer_t;
+
+
+//线程结构体
+struct ky_thread
+{
+		char name[KY_NAME_MAX];
+		ky_uint8_t type;
+		ky_uint8_t flag;
+		ky_list_t list;          //对象链表节点
+	
+		ky_list_t	 tlist;        //线程链表节点
+	
+		void       *sp;                               
+		void       *entry;                                  
+		void       *parameter;                             
+		void       *stack_addr;                             
+		ky_uint32_t stack_size;    
+	
+		ky_ubase_t remaining_tick;  //延时时间
+	
+		ky_uint8_t  current_priority;     
+    ky_uint8_t  init_priority;       
+    ky_uint32_t number_mask;          
+
+    ky_err_t    error;             
+    ky_uint8_t  stat;         
+
+		struct ky_timer thread_timer; //内置的线程定时器
+};
+typedef struct ky_thread *ky_thread_t;
 #endif
 
 
