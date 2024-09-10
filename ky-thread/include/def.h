@@ -43,6 +43,11 @@ typedef ky_uint32_t           ky_tick_t;
 #define KY_THREAD_STAT_SIGNAL_SUSPEND   0x20
 #define KY_THREAD_STAT_SIGNAL_MASK      0xf0
 
+#define KY_UINT8_MAX                    0xff            /**< Maxium number of UINT8 */
+#define KY_UINT16_MAX                   0xffff          /**< Maxium number of UINT16 */
+#define KY_UINT32_MAX                   0xffffffff      /**< Maxium number of UINT32 */
+#define KY_TICK_MAX                     KY_UINT32_MAX   /**< Maxium number of tick */
+
 
 #define KY_ALIGN_DOWN(size, align)      ((size) & ~((align) - 1))
 
@@ -115,7 +120,7 @@ struct ky_timer
 {
 		struct ky_object parent;
 		ky_list_t row[KY_TIMER_SKIP_LIST_LEVEL]; //定时器自身节点
-		void (*timer_func)(void *parameter);     //超时函数
+		void (*timeout_func)(void *parameter);     //超时函数
 		void *parameter;                         //形参
 		ky_tick_t init_tick;                     //定时器需要延时的时间
 	  ky_tick_t timeout_tick;        					 //定时器实际超时的时间

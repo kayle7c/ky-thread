@@ -1,6 +1,7 @@
 #include "def.h"
 #include "list.h"
 #include "hw_settings.h"
+#include "thread.h"
 
 extern struct ky_thread *ky_current_thread;
 extern ky_uint32_t ky_thread_ready_priority_group;
@@ -24,6 +25,7 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 		thread->stack_addr=stack_start;
 		thread->stack_size=stack_size;
 		
+	  //初始化线程栈，并返回sp指针
 		thread->sp=(void *)ky_hw_stack_init(thread->entry,
 														 thread->parameter,
 										(void *)((char *)thread->stack_addr+thread->stack_size-4));
@@ -34,21 +36,72 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 	
 		thread->error=KY_EOK;
 	  thread->stat=KY_THREAD_INIT;
+		
+		//初始化定时器
+		ky_timer_init(&(thread->thread_timer),
+									thread->name,
+									ky_thread_timeout,
+									thread,
+									0,
+									KY_TIMER_FLAG_ONE_SHOT);
 	
 		return KY_EOK;
 }
 
-void ky_thread_delay(ky_tick_t tick)
+//挂起线程->修改状态，从就绪列表中删除，线程计时器停止计时
+ky_err_t ky_thread_suspend(ky_thread_t thread)
 {
-#if 0
+		register ky_base_t temp;
+	
+		if((thread->stat & KY_THREAD_STAT_MASK) != KY_THREAD_READY)
+		{
+				return -KY_ERROR;
+		}
+		
+		temp = rt_hw_interrupt_disable();  
+		
+		//改变线程为挂起态
+		thread->stat=KY_THREAD_SUSPEND;
+		
+		//将线程从就绪列表中删除
+		ky_schedule_remove_thread(thread);
+	
+		//停止线程计时器
+		ky_timer_stop(&(thread->thread_timer));
+		
+		rt_hw_interrupt_enable(temp);
+		
+		return KY_EOK;
+}
+
+ky_err_t ky_thread_sleep(ky_tick_t tick)
+{
+		register ky_base_t temp;
 		struct ky_thread *thread;
 	
+		temp = rt_hw_interrupt_disable();
+	
+		//获取当前线程的线程控制块
 		thread=ky_current_thread;
+		
+		//挂起线程
+		ky_thread_suspend(thread);
+		
+		//设置定时器的延时时间
+		ky_timer_control(&(thread->thread_timer),KY_TIMER_CTRL_SET_TIME,&tick);
 	
-		thread->remaining_tick=tick;
+		//启动定时器
+		ky_timer_start(&(thread->thread_timer));     
 	
+		rt_hw_interrupt_enable(temp);  
+	
+		//开始调度
 		ky_schedule();
-#else 
+}
+
+#if 0
+void ky_thread_delay(ky_tick_t tick)
+{
 		register ky_base_t temp;
     struct ky_thread *thread;
 	
@@ -64,8 +117,13 @@ void ky_thread_delay(ky_tick_t tick)
 		rt_hw_interrupt_enable(temp);
 		
 		ky_schedule();
-#endif
 }
+#else
+ky_err_t ky_thread_delay(ky_tick_t tick)
+{
+		return ky_thread_sleep(tick);
+}
+#endif
 
 ky_thread_t ky_thread_self(void)
 {
@@ -113,4 +171,21 @@ ky_err_t ky_thread_startup(ky_thread_t thread)
     }
 
     return KY_EOK;
+}
+
+void ky_thread_timeout(void *parameter) //此处的parameter参数就是该线程的函数入口地址
+{
+		struct ky_thread *thread;
+		thread = (struct ky_thread *)parameter;
+	
+		//设置错误码为超时
+		thread->error=-KY_ETIMEOUT;
+	
+		ky_list_remove(&(thread->tlist));
+	
+		//将线程插入到就绪列表里
+		ky_schedule_insert_thread(thread);
+	
+		//系统调度
+		ky_schedule();
 }

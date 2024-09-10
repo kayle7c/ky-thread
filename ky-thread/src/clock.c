@@ -4,6 +4,7 @@ static ky_tick_t ky_tick = 0;    //系统时基计数器
 extern ky_list_t ky_thread_priority_table[KY_THREAD_PRIORITY_MAX];
 extern ky_uint32_t ky_thread_ready_priority_group;
 
+#if 0
 void ky_tick_increase(void)
 {
 		struct ky_thread *thread;
@@ -42,7 +43,15 @@ void ky_tick_increase(void)
 #endif
 		ky_schedule();
 }
+#else
+void ky_tick_increase(void)
+{
+		ky_tick++;
+	
+		ky_timer_check();
+}
 
+#endif
 ky_tick_t ky_tick_get(void)
 {
 		return ky_tick;
