@@ -12,7 +12,8 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 												void *parameter,
 												void *stack_start,
 												ky_uint32_t stack_size,
-												ky_uint8_t priority)
+												ky_uint8_t priority,
+												ky_uint32_t tick)
 
 {
 		ky_object_init((ky_object_t)thread, KY_Object_Class_Thread, name);
@@ -36,6 +37,10 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 	
 		thread->error=KY_EOK;
 	  thread->stat=KY_THREAD_INIT;
+		
+		//初始化时间片
+		thread->init_tick=tick;
+		thread->remaining_tick=tick;
 		
 		//初始化定时器
 		ky_timer_init(&(thread->thread_timer),

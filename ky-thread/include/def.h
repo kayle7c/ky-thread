@@ -145,7 +145,8 @@ struct ky_thread
 		void       *stack_addr;                             
 		ky_uint32_t stack_size;    
 	
-		ky_ubase_t remaining_tick;  //延时时间
+		ky_ubase_t init_tick;  			//初始时间片
+		ky_ubase_t remaining_tick;  //剩余时间片
 	
 		ky_uint8_t  current_priority;     
     ky_uint8_t  init_priority;       

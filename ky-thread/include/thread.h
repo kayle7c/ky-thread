@@ -13,7 +13,8 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 												void *parameter,
 												void *stack_start,
 												ky_uint32_t stack_size,
-												ky_uint8_t priority);
+												ky_uint8_t priority,
+												ky_uint32_t tick);
 												
 ky_err_t ky_thread_delay(ky_tick_t tick);
 												

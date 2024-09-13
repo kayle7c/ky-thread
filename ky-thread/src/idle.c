@@ -28,7 +28,8 @@ void ky_thread_idle_init(void)
 									 KY_NULL,
 									 &ky_thread_stack[0],
 									 sizeof(ky_thread_stack),
-									 KY_THREAD_PRIORITY_MAX-1);
+									 KY_THREAD_PRIORITY_MAX-1,
+									 );
 		
 		ky_thread_startup(&idle);
 }

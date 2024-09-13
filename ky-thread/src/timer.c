@@ -221,7 +221,11 @@ void ky_timer_check(void)
 								t->parent.flag &= ~KY_TIMER_FLAG_ACTIVATED;
 							
 						}
-				}					
+				}
+				else
+				{
+						break;
+				}
 		}
 	  rt_hw_interrupt_enable(level);    
 }
