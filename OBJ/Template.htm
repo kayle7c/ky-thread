@@ -3,11 +3,11 @@
 <title>Static Call Graph - [..\OBJ\Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Sep 13 20:31:45 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Sep 14 18:01:41 2024
 <BR><P>
-<H3>Maximum Stack Usage =        152 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        184 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
+__rt_entry_main &rArr; main &rArr; kythread_startup &rArr; ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
 <P>
 <H3>
 Functions with no stack information
@@ -102,9 +102,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[7d]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[80]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[7e]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[81]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[43]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
@@ -112,78 +112,78 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[7f]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+<P><STRONG><a name="[82]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
 <P><STRONG><a name="[47]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
 </UL>
 
-<P><STRONG><a name="[80]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[83]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[81]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[84]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[82]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[85]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[83]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[86]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
-<P><STRONG><a name="[84]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[87]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[85]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[88]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[86]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
+<P><STRONG><a name="[89]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
 
-<P><STRONG><a name="[87]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[8a]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[88]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[8b]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[89]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[8c]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
 
-<P><STRONG><a name="[8a]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[8d]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
 
-<P><STRONG><a name="[8b]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[8e]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[8c]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[8f]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
-<P><STRONG><a name="[8d]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[90]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[8e]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[91]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[8f]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[92]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[90]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[93]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
-<P><STRONG><a name="[91]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[94]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
 
-<P><STRONG><a name="[92]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[95]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[93]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[96]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
-<P><STRONG><a name="[94]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[97]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
 <P><STRONG><a name="[4c]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[95]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[98]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[96]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+<P><STRONG><a name="[99]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
 
-<P><STRONG><a name="[97]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[9a]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
 
-<P><STRONG><a name="[98]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+<P><STRONG><a name="[9b]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
 
-<P><STRONG><a name="[99]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+<P><STRONG><a name="[9c]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
 
-<P><STRONG><a name="[9a]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[9d]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[9b]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[9e]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[41]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
-<P><STRONG><a name="[9c]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[9f]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[44]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -196,17 +196,17 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[9d]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[a0]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[48]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
+<BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; kythread_startup &rArr; ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[9e]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[a1]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
 <P><STRONG><a name="[51]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -216,7 +216,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[9f]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[a2]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[4d]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -360,16 +360,17 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5f]"></a>rt_hw_interrupt_disable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, context_rvds.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_interrupt_leave
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kythread_startup
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_interrupt_leave
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_interrupt_enter
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_stop
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_start
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule_remove_thread
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule_insert_thread
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_object_init
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_yeild
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_suspend
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_sleep
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_resume
@@ -378,13 +379,14 @@ Global Symbols
 <P><STRONG><a name="[60]"></a>rt_hw_interrupt_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, context_rvds.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_interrupt_leave
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_interrupt_enter
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_stop
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_start
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule_remove_thread
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule_insert_thread
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_object_init
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_yeild
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_suspend
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_sleep
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_resume
@@ -401,17 +403,17 @@ Global Symbols
 <P><STRONG><a name="[b]"></a>PendSV_Handler</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, context_rvds.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[a0]"></a>__use_no_semihosting</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi_2.o(.text), UNUSED)
+<P><STRONG><a name="[a3]"></a>__use_no_semihosting</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi_2.o(.text), UNUSED)
 
-<P><STRONG><a name="[a1]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[a4]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[a2]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[a5]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[a3]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[a6]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[a4]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[a7]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[a5]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[a8]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[45]"></a>__user_setup_stackheap</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -432,13 +434,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[a6]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[a9]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[4f]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[a7]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[aa]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[7]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.BusFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
@@ -536,6 +538,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
+<P><STRONG><a name="[7f]"></a>delay</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, main.o(i.delay))
+<BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test3_thread_entry
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test2_thread_entry
+</UL>
+
 <P><STRONG><a name="[70]"></a>ky_hw_stack_init</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, hw_settings.o(i.ky_hw_stack_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ky_hw_stack_init
 </UL>
@@ -545,8 +552,8 @@ Global Symbols
 <P><STRONG><a name="[58]"></a>ky_interrupt_enter</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, irq.o(i.ky_interrupt_enter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ky_interrupt_enter
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
@@ -554,8 +561,8 @@ Global Symbols
 <P><STRONG><a name="[5a]"></a>ky_interrupt_leave</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, irq.o(i.ky_interrupt_leave))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ky_interrupt_leave
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
@@ -567,10 +574,10 @@ Global Symbols
 <P><STRONG><a name="[61]"></a>ky_object_init</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, object.o(i.ky_object_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ky_object_init &rArr; ky_strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_strncpy
+<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_strncpy
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_object_get_information
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_init
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_init
@@ -579,12 +586,13 @@ Global Symbols
 <P><STRONG><a name="[64]"></a>ky_schedule</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, scheduler.o(i.ky_schedule))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ky_schedule
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ky_ffs
+<BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ky_ffs
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_context_switch
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_startup
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_yeild
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_timeout
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_sleep
 </UL>
@@ -592,8 +600,8 @@ Global Symbols
 <P><STRONG><a name="[67]"></a>ky_schedule_insert_thread</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, scheduler.o(i.ky_schedule_insert_thread))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ky_schedule_insert_thread
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_timeout
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_resume
@@ -602,8 +610,8 @@ Global Symbols
 <P><STRONG><a name="[68]"></a>ky_schedule_remove_thread</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, scheduler.o(i.ky_schedule_remove_thread))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ky_schedule_remove_thread
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_suspend
 </UL>
@@ -614,8 +622,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_object_init
 </UL>
 
-<P><STRONG><a name="[7c]"></a>ky_system_schedule_init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, scheduler.o(i.ky_system_schedule_init))
-<BR><BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[7e]"></a>ky_system_schedule_init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, scheduler.o(i.ky_system_schedule_init))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kythread_startup
 </UL>
 
 <P><STRONG><a name="[69]"></a>ky_system_schedule_start</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, scheduler.o(i.ky_system_schedule_start))
@@ -632,58 +640,57 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_sleep
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test3_thread_entry
-<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test2_thread_entry
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test1_thread_entry
+<BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test1_thread_entry
 </UL>
 
 <P><STRONG><a name="[3a]"></a>ky_thread_idle_entry</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, idle.o(i.ky_thread_idle_entry))
 <BR>[Address Reference Count : 1]<UL><LI> idle.o(i.ky_thread_idle_init)
 </UL>
-<P><STRONG><a name="[6d]"></a>ky_thread_idle_init</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, idle.o(i.ky_thread_idle_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
+<P><STRONG><a name="[6d]"></a>ky_thread_idle_init</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, idle.o(i.ky_thread_idle_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_startup
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kythread_startup
 </UL>
 
-<P><STRONG><a name="[6e]"></a>ky_thread_init</STRONG> (Thumb, 112 bytes, Stack size 40 bytes, thread.o(i.ky_thread_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
+<P><STRONG><a name="[6e]"></a>ky_thread_init</STRONG> (Thumb, 120 bytes, Stack size 48 bytes, thread.o(i.ky_thread_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_init
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_object_init
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_hw_stack_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_idle_init
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_idle_init
 </UL>
 
 <P><STRONG><a name="[72]"></a>ky_thread_resume</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, thread.o(i.ky_thread_resume))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ky_thread_resume &rArr; ky_schedule_insert_thread
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule_insert_thread
+<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule_insert_thread
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_list_remove
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_startup
 </UL>
 
 <P><STRONG><a name="[77]"></a>ky_thread_self</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, thread.o(i.ky_thread_self))
-<BR><BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_startup
+<BR><BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_tick_increase
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_startup
 </UL>
 
 <P><STRONG><a name="[6c]"></a>ky_thread_sleep</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, thread.o(i.ky_thread_sleep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ky_thread_sleep &rArr; ky_timer_start &rArr; _ky_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_start
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_start
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_control
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_suspend
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_delay
 </UL>
@@ -695,17 +702,17 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_self
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_resume
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_idle_init
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_idle_init
 </UL>
 
 <P><STRONG><a name="[74]"></a>ky_thread_suspend</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, thread.o(i.ky_thread_suspend))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ky_thread_suspend &rArr; ky_timer_stop &rArr; _ky_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_stop
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_stop
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule_remove_thread
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_sleep
 </UL>
@@ -719,27 +726,40 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> thread.o(i.ky_thread_init)
 </UL>
-<P><STRONG><a name="[7a]"></a>ky_tick_get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, clock.o(i.ky_tick_get))
-<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
+<P><STRONG><a name="[79]"></a>ky_thread_yeild</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, thread.o(i.ky_thread_yeild))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ky_thread_yeild &rArr; ky_schedule
+</UL>
+<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_schedule
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_list_remove
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
+</UL>
+<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_tick_increase
+</UL>
+
+<P><STRONG><a name="[7b]"></a>ky_tick_get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, clock.o(i.ky_tick_get))
+<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_start
 </UL>
 
-<P><STRONG><a name="[59]"></a>ky_tick_increase</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, clock.o(i.ky_tick_increase))
+<P><STRONG><a name="[59]"></a>ky_tick_increase</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, clock.o(i.ky_tick_increase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = ky_tick_increase &rArr; ky_timer_check &rArr; ky_timer_start &rArr; _ky_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_yeild
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_self
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[79]"></a>ky_timer_check</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, timer.o(i.ky_timer_check))
+<P><STRONG><a name="[7a]"></a>ky_timer_check</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, timer.o(i.ky_timer_check))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ky_timer_check &rArr; ky_timer_start &rArr; _ky_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ky_timer_remove
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_tick_get
+<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ky_timer_remove
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_tick_get
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_start
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_tick_increase
 </UL>
@@ -760,34 +780,42 @@ Global Symbols
 <P><STRONG><a name="[76]"></a>ky_timer_start</STRONG> (Thumb, 204 bytes, Stack size 32 bytes, timer.o(i.ky_timer_start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ky_timer_start &rArr; _ky_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ky_timer_remove
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_tick_get
+<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ky_timer_remove
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_tick_get
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_sleep
 </UL>
 
 <P><STRONG><a name="[78]"></a>ky_timer_stop</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, timer.o(i.ky_timer_stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ky_timer_stop &rArr; _ky_timer_remove
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ky_timer_remove
+<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ky_timer_remove
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_enable
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_suspend
 </UL>
 
-<P><STRONG><a name="[49]"></a>main</STRONG> (Thumb, 196 bytes, Stack size 24 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = main &rArr; ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
+<P><STRONG><a name="[7d]"></a>kythread_startup</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, components.o(i.kythread_startup))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = kythread_startup &rArr; ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
+<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_idle_init
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_system_schedule_init
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_interrupt_disable
+</UL>
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[49]"></a>main</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = main &rArr; kythread_startup &rArr; ky_thread_idle_init &rArr; ky_thread_init &rArr; ky_timer_init &rArr; ky_object_init &rArr; ky_strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kythread_startup
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_startup
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_init
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_idle_init
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_system_schedule_start
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_system_schedule_init
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
@@ -801,16 +829,12 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
 <P><STRONG><a name="[3d]"></a>test2_thread_entry</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(i.test2_thread_entry))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = test2_thread_entry &rArr; ky_thread_delay &rArr; ky_thread_sleep &rArr; ky_timer_start &rArr; _ky_timer_remove
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_delay
+<BR><BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
 <P><STRONG><a name="[3e]"></a>test3_thread_entry</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(i.test3_thread_entry))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = test3_thread_entry &rArr; ky_thread_delay &rArr; ky_thread_sleep &rArr; ky_timer_start &rArr; _ky_timer_remove
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_delay
+<BR><BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL><P>
@@ -832,14 +856,15 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[73]"></a>ky_list_remove</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, thread.o(i.ky_list_remove))
-<BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_timeout
+<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_yeild
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_timeout
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_resume
 </UL>
 
-<P><STRONG><a name="[7b]"></a>_ky_timer_remove</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, timer.o(i._ky_timer_remove))
+<P><STRONG><a name="[7c]"></a>_ky_timer_remove</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, timer.o(i._ky_timer_remove))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _ky_timer_remove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_check
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_stop
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_timer_start
 </UL>

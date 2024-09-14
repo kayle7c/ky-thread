@@ -1,5 +1,4 @@
-#include "sys.h"
-#include "delay.h"
+ #include "delay.h"
 #include "usart.h"// RX->9 TX->A10
 #include "thread.h"
 #include "led.h"
@@ -20,6 +19,11 @@ ky_uint8_t ky_test1_thread_stack[512];
 ky_uint8_t ky_test2_thread_stack[512];
 ky_uint8_t ky_test3_thread_stack[512];
 
+void delay (uint32_t count)
+{
+    for(; count!=0; count--);
+}
+
 void test1_thread_entry()
 {
 		while(1)
@@ -39,10 +43,12 @@ void test2_thread_entry()
 		{
 				flag2=1;
 //				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
-        ky_thread_delay(2); 		
+        //ky_thread_delay(2); 		
+				delay( 200 ); 
 				flag2=0;
 //				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
-        ky_thread_delay(2);
+        //ky_thread_delay(2);
+				delay( 200 ); 
 		}
 }
 
@@ -52,10 +58,12 @@ void test3_thread_entry()
 		{
 				flag3=1;
 //				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
-        ky_thread_delay(3); 		
+        //ky_thread_delay(3); 		
+				delay( 200 ); 
 				flag3=0;
 //				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
-        ky_thread_delay(3);
+        //ky_thread_delay(3);
+				delay( 200 ); 
 		}
 }
 
@@ -63,15 +71,7 @@ int main()
 {
 		LED_Init();
 	
-		rt_hw_interrupt_disable();   //先关中断，防止还没有初始化好就开始调度
-	
-		SysTick_Config( SystemCoreClock / 100 );
-	
-	  //初始化调度器
-		ky_system_schedule_init();
-		
-		//初始化空闲线程
-		ky_thread_idle_init();
+		kythread_startup();
 	
 	  //创建线程
 	  ky_thread_init(&ky_test1_thread,
@@ -80,7 +80,8 @@ int main()
 									KY_NULL,
 									&ky_test1_thread_stack[0],
 									sizeof(ky_test1_thread_stack),
-									2);
+									2,
+									4);
 		ky_thread_startup(&ky_test1_thread);						
 	
 		ky_thread_init(&ky_test2_thread,
@@ -89,7 +90,8 @@ int main()
 									KY_NULL,
 									&ky_test2_thread_stack[0],
 									sizeof(ky_test2_thread_stack),
-									3);
+									3,
+									2);
 		ky_thread_startup(&ky_test2_thread);				
 
 		ky_thread_init(&ky_test3_thread,
@@ -98,7 +100,8 @@ int main()
 									KY_NULL,
 									&ky_test3_thread_stack[0],
 									sizeof(ky_test3_thread_stack),
-									4);
+									3,
+									3);
 		ky_thread_startup(&ky_test3_thread);									
 	
 		ky_system_schedule_start();

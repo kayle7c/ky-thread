@@ -637,6 +637,11 @@
               <FileType>1</FileType>
               <FilePath>..\ky-thread\src\timer.c</FilePath>
             </File>
+            <File>
+              <FileName>components.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\src\components.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -658,6 +663,9 @@
               <FilePath>..\ky-thread\include\list.h</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>components</GroupName>
         </Group>
       </Groups>
     </Target>

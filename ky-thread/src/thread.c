@@ -5,6 +5,7 @@
 
 extern struct ky_thread *ky_current_thread;
 extern ky_uint32_t ky_thread_ready_priority_group;
+extern ky_list_t ky_thread_priority_table[KY_THREAD_PRIORITY_MAX];
 
 ky_err_t ky_thread_init(struct ky_thread *thread,
 												const char *name,
@@ -193,4 +194,36 @@ void ky_thread_timeout(void *parameter) //´Ë´¦µÄparameter²ÎÊı¾ÍÊÇ¸ÃÏß³ÌµÄº¯ÊıÈë¿
 	
 		//ÏµÍ³µ÷¶È
 		ky_schedule();
+}
+
+//Èç¹ûÊ±¼äÆ¬µ½ÁËÈÃ³ö´¦ÀíÆ÷
+ky_err_t ky_thread_yeild(void)
+{
+		register ky_base_t level;
+		struct ky_thread *thread;
+	
+		level = rt_hw_interrupt_disable();
+	
+		thread = ky_current_thread;
+		
+		//Èç¹ûÏß³ÌÔÚ¾ÍĞ÷Ì¬£¬²¢ÇÒÍ¬ÓÅÏÈ¼¶ºó»¹ÓĞÏß³Ì
+		if((thread->stat & KY_THREAD_STAT_MASK)==KY_THREAD_READY && thread->tlist.next != thread->tlist.prev)
+		{
+				//½«µ±Ç°Ïß³Ì´Ó¾ÍĞ÷ÁĞ±íÖĞÒÆ³ı
+				ky_list_remove(&(thread->tlist));
+			
+				//½«¸ÃÓÅÏÈ¼¶µÄÏß³ÌĞòÁĞ²åÈëµ½¸ÃÏß³ÌµÄÇ°Ãæ£¬ÕâÑù¸ÃÏß³Ì¾Í»áÔÚÕâ¸öÓÅÏÈ¼¶µÄĞòÁĞµÄ×îºóÃæÁË
+				ky_list_insert_before(&(ky_thread_priority_table[thread->current_priority]),
+                            &(thread->tlist));
+			
+				rt_hw_interrupt_enable(level);
+			
+				ky_schedule();
+			
+				return KY_EOK;
+		}
+		
+		rt_hw_interrupt_enable(level);
+		
+		return KY_EOK;
 }

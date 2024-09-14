@@ -46,7 +46,21 @@ void ky_tick_increase(void)
 #else
 void ky_tick_increase(void)
 {
+		struct ky_thread *thread;
+		
 		ky_tick++;
+	
+		thread = ky_thread_self();
+	
+		thread->remaining_tick--; //时间片递减
+	
+		//如果时间片用完，重置时间片随后让出处理器
+		if(thread->remaining_tick == 0)
+		{
+				thread->remaining_tick = thread->init_tick;
+				
+				ky_thread_yeild();
+		}
 	
 		ky_timer_check();
 }

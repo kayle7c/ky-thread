@@ -1,6 +1,7 @@
 #ifndef ___THREAD_H__
 #define ___THREAD_H__
 
+#include "sys.h"
 #include "def.h"
 #include "kyconfig.h"
 #include "list.h"
@@ -20,7 +21,11 @@ ky_err_t ky_thread_delay(ky_tick_t tick);
 												
 ky_err_t ky_thread_startup(ky_thread_t thread);
 												
-void ky_thread_timeout(void *parameter);   												
+ky_thread_t ky_thread_self(void);						
+												
+void ky_thread_timeout(void *parameter);   		
+
+ky_err_t ky_thread_yeild(void);												
 
 //内核对象接口
 void ky_object_init(struct ky_object *object,
@@ -54,13 +59,14 @@ ky_tick_t ky_tick_get(void);
 ky_err_t ky_timer_stop(ky_timer_t timer);
 ky_err_t ky_timer_control(ky_timer_t timer, int cmd, void *arg);
 ky_err_t ky_timer_start(ky_timer_t timer);
-void ky_timer_check(void);
-									 
-										
+void ky_timer_check(void);												
 										
 //内核服务函数接口
 char *ky_strncpy(char *dst,const char*src,ky_base_t n);
 int __ky_ffs(int value);
+									 
+//组件接口
+void kythread_startup(void);									 
 
 												
 #endif
