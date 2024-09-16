@@ -17,7 +17,7 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 												ky_uint32_t tick)
 
 {
-		ky_object_init((ky_object_t)thread, KY_Object_Class_Thread, name);
+//		ky_object_init((ky_object_t)thread, KY_Object_Class_Thread, name);
 	
 		ky_list_init(&(thread->tlist));
 		
@@ -105,31 +105,20 @@ ky_err_t ky_thread_sleep(ky_tick_t tick)
 		ky_schedule();
 }
 
-#if 0
-void ky_thread_delay(ky_tick_t tick)
-{
-		register ky_base_t temp;
-    struct ky_thread *thread;
-	
-		temp = rt_hw_interrupt_disable();
-	
-		thread = ky_current_thread;
-    thread->remaining_tick = tick;
-	
-		//将当前线程挂起
-		thread->stat = KY_THREAD_SUSPEND;
-		ky_thread_ready_priority_group &= ~thread->number_mask;
-	
-		rt_hw_interrupt_enable(temp);
-		
-		ky_schedule();
-}
-#else
 ky_err_t ky_thread_delay(ky_tick_t tick)
 {
 		return ky_thread_sleep(tick);
 }
-#endif
+
+void ky_thread_delay_ms(ky_tick_t ms)
+{
+		ky_thread_delay(ms);
+}
+
+void ky_thread_delay_s(ky_tick_t s)
+{
+		ky_thread_delay_ms(s*1000);
+}
 
 ky_thread_t ky_thread_self(void)
 {

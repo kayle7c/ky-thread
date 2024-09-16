@@ -1,4 +1,4 @@
- #include "delay.h"
+#include "delay.h"
 #include "usart.h"// RX->9 TX->A10
 #include "thread.h"
 #include "led.h"
@@ -29,11 +29,12 @@ void test1_thread_entry()
 		while(1)
 		{
 				flag1=1;
-//				GPIO_SetBits(GPIOB,GPIO_Pin_8); 
-				ky_thread_delay(4); 		
+				GPIO_SetBits(GPIOB,GPIO_Pin_8); 
+				//printf("task1!\r\n");
+				ky_thread_delay_s(1); 		
 				flag1=0;
-//				GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
-        ky_thread_delay(4);
+				GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
+        ky_thread_delay_s(1);
 		}
 }
 
@@ -42,35 +43,32 @@ void test2_thread_entry()
 		while(1)
 		{
 				flag2=1;
-//				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
-        //ky_thread_delay(2); 		
-				delay( 200 ); 
+				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
+				//printf("task2!\r\n");
+        ky_thread_delay_ms(500); 		
 				flag2=0;
-//				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
-        //ky_thread_delay(2);
-				delay( 200 ); 
+				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
+        ky_thread_delay_ms(500);
 		}
 }
 
-void test3_thread_entry()
-{
-		while(1)
-		{
-				flag3=1;
+//void test3_thread_entry()
+//{
+//		while(1)
+//		{
+//				flag3=1;
 //				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
-        //ky_thread_delay(3); 		
-				delay( 200 ); 
-				flag3=0;
+//        ky_thread_delay(3); 		
+//				//delay( 200 ); 
+//				flag3=0;
 //				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
-        //ky_thread_delay(3);
-				delay( 200 ); 
-		}
-}
+//        ky_thread_delay(3);
+//				//delay( 200 ); 
+//		}
+//}
 
 int main()
 {
-		LED_Init();
-	
 		kythread_startup();
 	
 	  //创建线程
@@ -94,15 +92,15 @@ int main()
 									2);
 		ky_thread_startup(&ky_test2_thread);				
 
-		ky_thread_init(&ky_test3_thread,
-									"test3",
-									test3_thread_entry,
-									KY_NULL,
-									&ky_test3_thread_stack[0],
-									sizeof(ky_test3_thread_stack),
-									3,
-									3);
-		ky_thread_startup(&ky_test3_thread);									
+//		ky_thread_init(&ky_test3_thread,
+//									"test3",
+//									test3_thread_entry,
+//									KY_NULL,
+//									&ky_test3_thread_stack[0],
+//									sizeof(ky_test3_thread_stack),
+//									4,
+//									3);
+//		ky_thread_startup(&ky_test3_thread);									
 	
 		ky_system_schedule_start();
 }

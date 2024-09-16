@@ -43,7 +43,7 @@ void ky_timer_init(ky_timer_t timer,
 									 ky_tick_t time,
 									 ky_uint8_t flag)
 {
-		ky_object_init((ky_object_t)timer, KY_Object_Class_Timer, name);
+//		ky_object_init((ky_object_t)timer, KY_Object_Class_Timer, name);
 		
 		_ky_timer_init(timer,timeout,parameter,time,flag);
 }
@@ -52,7 +52,7 @@ ky_inline void _ky_timer_remove(ky_timer_t timer)
 {
 		for(int i=0;i<KY_TIMER_SKIP_LIST_LEVEL;i++)
 		{
-				ky_list_remove(&(timer->row[i]));
+				ky_list_remove(&timer->row[i]);
 		}
 }
 

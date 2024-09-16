@@ -19,6 +19,10 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 												
 ky_err_t ky_thread_delay(ky_tick_t tick);
 												
+void ky_thread_delay_ms(ky_tick_t ms);
+
+void ky_thread_delay_s(ky_tick_t s);												
+												
 ky_err_t ky_thread_startup(ky_thread_t thread);
 												
 ky_thread_t ky_thread_self(void);						
@@ -68,5 +72,10 @@ int __ky_ffs(int value);
 //组件接口
 void kythread_startup(void);									 
 
-												
+#if KY_USING_SHELL								 
+//shell组件接口									 
+void ky_shell_init(void);									
+
+#endif
+
 #endif
