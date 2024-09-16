@@ -1,5 +1,3 @@
-#include "delay.h"
-#include "usart.h"// RX->9 TX->A10
 #include "thread.h"
 #include "led.h"
 
@@ -11,18 +9,12 @@ extern ky_list_t ky_thread_priority_table[KY_THREAD_PRIORITY_MAX];
 
 struct ky_thread ky_test1_thread;
 struct ky_thread ky_test2_thread;
-struct ky_thread ky_test3_thread;
 
 ALIGN(KY_ALIGN_SIZE)
 
 ky_uint8_t ky_test1_thread_stack[512];
 ky_uint8_t ky_test2_thread_stack[512];
-ky_uint8_t ky_test3_thread_stack[512];
 
-void delay (uint32_t count)
-{
-    for(; count!=0; count--);
-}
 
 void test1_thread_entry()
 {
@@ -30,7 +22,6 @@ void test1_thread_entry()
 		{
 				flag1=1;
 				GPIO_SetBits(GPIOB,GPIO_Pin_8); 
-				//printf("task1!\r\n");
 				ky_thread_delay_s(1); 		
 				flag1=0;
 				GPIO_ResetBits(GPIOB,GPIO_Pin_8); 
@@ -44,28 +35,12 @@ void test2_thread_entry()
 		{
 				flag2=1;
 				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
-				//printf("task2!\r\n");
         ky_thread_delay_ms(500); 		
 				flag2=0;
 				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
         ky_thread_delay_ms(500);
 		}
 }
-
-//void test3_thread_entry()
-//{
-//		while(1)
-//		{
-//				flag3=1;
-//				GPIO_SetBits(GPIOB,GPIO_Pin_7); 
-//        ky_thread_delay(3); 		
-//				//delay( 200 ); 
-//				flag3=0;
-//				GPIO_ResetBits(GPIOB,GPIO_Pin_7); 
-//        ky_thread_delay(3);
-//				//delay( 200 ); 
-//		}
-//}
 
 int main()
 {
@@ -90,17 +65,7 @@ int main()
 									sizeof(ky_test2_thread_stack),
 									3,
 									2);
-		ky_thread_startup(&ky_test2_thread);				
-
-//		ky_thread_init(&ky_test3_thread,
-//									"test3",
-//									test3_thread_entry,
-//									KY_NULL,
-//									&ky_test3_thread_stack[0],
-//									sizeof(ky_test3_thread_stack),
-//									4,
-//									3);
-//		ky_thread_startup(&ky_test3_thread);									
+		ky_thread_startup(&ky_test2_thread);								
 	
 		ky_system_schedule_start();
 }

@@ -1,4 +1,4 @@
-..\obj\hw_settings.o: ..\ky-thread\libcpu\hw_settings.c
+..\obj\hw_settings.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.c
 ..\obj\hw_settings.o: ..\ky-thread\include\thread.h
 ..\obj\hw_settings.o: ..\SYSTEM\sys\sys.h
 ..\obj\hw_settings.o: ..\USER\stm32f10x.h
@@ -31,7 +31,7 @@
 ..\obj\hw_settings.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\hw_settings.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\hw_settings.o: ..\ky-thread\include\def.h
-..\obj\hw_settings.o: ..\..\os\kyconfig.h
+..\obj\hw_settings.o: ..\ky-thread\include\kyconfig.h
 ..\obj\hw_settings.o: ..\ky-thread\include\list.h
-..\obj\hw_settings.o: ..\ky-thread\libcpu\hw_settings.h
+..\obj\hw_settings.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\hw_settings.o: ..\ky-thread\include\thread.h

@@ -1,5 +1,5 @@
 ..\obj\main.o: main.c
-..\obj\main.o: ..\SYSTEM\delay\delay.h
+..\obj\main.o: ..\ky-thread\include\thread.h
 ..\obj\main.o: ..\SYSTEM\sys\sys.h
 ..\obj\main.o: ..\USER\stm32f10x.h
 ..\obj\main.o: ..\CORE\core_cm3.h
@@ -30,12 +30,9 @@
 ..\obj\main.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\main.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\main.o: ..\STM32F10x_FWLib\inc\misc.h
-..\obj\main.o: ..\SYSTEM\usart\usart.h
-..\obj\main.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\main.o: ..\ky-thread\include\thread.h
 ..\obj\main.o: ..\ky-thread\include\def.h
-..\obj\main.o: ..\..\os\kyconfig.h
+..\obj\main.o: ..\ky-thread\include\kyconfig.h
 ..\obj\main.o: ..\ky-thread\include\list.h
-..\obj\main.o: ..\ky-thread\libcpu\hw_settings.h
+..\obj\main.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\main.o: ..\ky-thread\include\thread.h
 ..\obj\main.o: ..\Hardware\led.h

@@ -31,8 +31,8 @@
 "..\obj\sys.o"
 "..\obj\usart.o"
 "..\obj\led.o"
-"..\obj\hw_settings.o"
 "..\obj\context_rvds.o"
+"..\obj\hw_settings.o"
 "..\obj\thread.o"
 "..\obj\scheduler.o"
 "..\obj\object.o"
@@ -42,7 +42,6 @@
 "..\obj\irq.o"
 "..\obj\timer.o"
 "..\obj\components.o"
-"..\obj\shell.o"
 --strict --scatter "..\OBJ\Template.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
