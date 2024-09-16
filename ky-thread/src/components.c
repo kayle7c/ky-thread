@@ -16,6 +16,10 @@ void kythread_startup(void)
 		//初始化调度器
 		ky_system_schedule_init();		
 	
+#if KY_USING_SHELL
+		ky_shell_init();
+#endif
+	
 		//初始化空闲线程
 		ky_thread_idle_init();
 				

@@ -664,6 +664,16 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\components\shell\shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>

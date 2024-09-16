@@ -122,11 +122,8 @@ void uart_init(u32 bound){
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//收发模式
 
   USART_Init(USART1, &USART_InitStructure); //初始化串口1
-<<<<<<< HEAD
 // USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
-=======
- USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
->>>>>>> 433b51e6fbee0829bf6f30c6a16eabbb616c03c4
+
   USART_Cmd(USART1, ENABLE);                    //使能串口1 
 
 } 

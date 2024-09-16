@@ -9,4 +9,10 @@
 
 #define KY_TICK_PER_SECOND	        1000
 
+#define KY_USING_SHELL              1
+#define KY_SHELL_PRIORITY           10
+#define KY_SHELL_STACK_SIZE         1024
+#define KY_SHELL_USART              USART1
+
+
 #endif

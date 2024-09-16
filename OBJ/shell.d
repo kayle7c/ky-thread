@@ -31,9 +31,9 @@
 ..\obj\shell.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\shell.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\shell.o: ..\ky-thread\include\def.h
-..\obj\shell.o: ..\..\os\kyconfig.h
+..\obj\shell.o: ..\ky-thread\include\kyconfig.h
 ..\obj\shell.o: ..\ky-thread\include\list.h
-..\obj\shell.o: ..\ky-thread\libcpu\hw_settings.h
+..\obj\shell.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\shell.o: ..\ky-thread\include\thread.h
 ..\obj\shell.o: ..\SYSTEM\usart\usart.h
 ..\obj\shell.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
