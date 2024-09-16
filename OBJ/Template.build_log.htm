@@ -26,45 +26,20 @@ Project File Date:  09/16/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil\ARM\ARMCC\Bin'
-Build target 'Template'
-compiling usart.c...
-..\SYSTEM\usart\usart.c(48): warning:  #260-D: explicit type is missing ("int" assumed)
-  _sys_exit(int x) 
-..\SYSTEM\usart\usart.c: 1 warning, 0 errors
-compiling clock.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\clock.c(72): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\src\clock.c: 3 warnings, 0 errors
-compiling idle.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\idle.c(35): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\src\idle.c: 3 warnings, 0 errors
-compiling irq.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\irq.c(25): warning:  #1-D: last line of file ends without a newline
-  } 
-..\ky-thread\src\irq.c: 3 warnings, 0 errors
-compiling shell.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\components\shell\shell.c(45): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
-  									shell_thread_entry,
-..\ky-thread\components\shell\shell.c(55): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\components\shell\shell.c: 4 warnings, 0 errors
+Rebuild target 'Template'
+assembling startup_stm32f10x_md.s...
+compiling core_cm3.c...
+compiling stm32f10x_dbgmcu.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_it.c...
+compiling stm32f10x_crc.c...
+compiling stm32f10x_dac.c...
+compiling stm32f10x_cec.c...
+compiling misc.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_adc.c...
 compiling main.c...
 ..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -75,6 +50,32 @@ main.c(77): warning:  #167-D: argument of type "void (*)()" is incompatible with
 main.c(87): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
   									test2_thread_entry,
 main.c: 4 warnings, 0 errors
+compiling stm32f10x_can.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_iwdg.c...
+compiling stm32f10x_i2c.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_sdio.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_wwdg.c...
+compiling stm32f10x_tim.c...
+compiling delay.c...
+assembling context_rvds.s...
+compiling usart.c...
+..\SYSTEM\usart\usart.c(48): warning:  #260-D: explicit type is missing ("int" assumed)
+  _sys_exit(int x) 
+..\SYSTEM\usart\usart.c(93): warning:  #177-D: variable "NVIC_InitStructure"  was declared but never referenced
+  	NVIC_InitTypeDef NVIC_InitStructure;
+..\SYSTEM\usart\usart.c: 2 warnings, 0 errors
+compiling led.c...
+..\Hardware\led.c(24): warning:  #1-D: last line of file ends without a newline
+  }
+..\Hardware\led.c: 1 warning, 0 errors
 compiling hw_settings.c...
 ..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -83,44 +84,7 @@ compiling hw_settings.c...
 ..\ky-thread\libcpu\hw_settings.c(68): warning:  #1-D: last line of file ends without a newline
   }
 ..\ky-thread\libcpu\hw_settings.c: 3 warnings, 0 errors
-compiling kservice.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\kservice.c(34): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\src\kservice.c: 3 warnings, 0 errors
-compiling object.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\object.c: 2 warnings, 0 errors
-compiling components.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\components.c(30): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\src\components.c: 3 warnings, 0 errors
-compiling scheduler.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\scheduler.c(204): warning:  #1-D: last line of file ends without a newline
-  }
-..\ky-thread\src\scheduler.c: 3 warnings, 0 errors
-compiling timer.c...
-..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\timer.c(114): warning:  #550-D: variable "tst_nr"  was set but never used
-  		unsigned int tst_nr;
-..\ky-thread\src\timer.c: 3 warnings, 0 errors
+compiling sys.c...
 compiling thread.c...
 ..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -131,10 +95,82 @@ compiling thread.c...
 ..\ky-thread\src\thread.c(218): warning:  #1-D: last line of file ends without a newline
   }
 ..\ky-thread\src\thread.c: 4 warnings, 0 errors
+compiling scheduler.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\scheduler.c(204): warning:  #1-D: last line of file ends without a newline
+  }
+..\ky-thread\src\scheduler.c: 3 warnings, 0 errors
+compiling object.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\object.c: 2 warnings, 0 errors
+compiling kservice.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\kservice.c(34): warning:  #1-D: last line of file ends without a newline
+  }
+..\ky-thread\src\kservice.c: 3 warnings, 0 errors
+compiling idle.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\idle.c(35): warning:  #1-D: last line of file ends without a newline
+  }
+..\ky-thread\src\idle.c: 3 warnings, 0 errors
+compiling clock.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\clock.c(72): warning:  #1-D: last line of file ends without a newline
+  }
+..\ky-thread\src\clock.c: 3 warnings, 0 errors
+compiling irq.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\irq.c(25): warning:  #1-D: last line of file ends without a newline
+  } 
+..\ky-thread\src\irq.c: 3 warnings, 0 errors
+compiling timer.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\timer.c(114): warning:  #550-D: variable "tst_nr"  was set but never used
+  		unsigned int tst_nr;
+..\ky-thread\src\timer.c: 3 warnings, 0 errors
+compiling components.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\src\components.c(30): warning:  #1-D: last line of file ends without a newline
+  }
+..\ky-thread\src\components.c: 3 warnings, 0 errors
+compiling shell.c...
+..\..\os\kyconfig.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+  void ky_system_timer_init();									 
+..\ky-thread\components\shell\shell.c(77): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
+  									shell_thread_entry,
+..\ky-thread\components\shell\shell.c(87): warning:  #1-D: last line of file ends without a newline
+  }
+..\ky-thread\components\shell\shell.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=4892 RO-data=268 RW-data=100 ZI-data=4404  
+Program Size: Code=5016 RO-data=268 RW-data=104 ZI-data=5544  
 FromELF: creating hex file...
-"..\OBJ\Template.axf" - 0 Error(s), 39 Warning(s).
+"..\OBJ\Template.axf" - 0 Error(s), 41 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -148,7 +184,7 @@ Package Vendor: Keil
   D:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

@@ -10,7 +10,7 @@
 #define KY_TICK_PER_SECOND	        100
 
 //shell
-#define KY_USING_SHELL							0
+#define KY_USING_SHELL							1
 
 #define KY_SHELL_USART              USART1
 #define KY_SHELL_STACK_SIZE					1024
