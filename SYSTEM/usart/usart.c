@@ -122,10 +122,14 @@ void uart_init(u32 bound){
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//收发模式
 
   USART_Init(USART1, &USART_InitStructure); //初始化串口1
+<<<<<<< HEAD
 // USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
+=======
+ USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
+>>>>>>> 433b51e6fbee0829bf6f30c6a16eabbb616c03c4
   USART_Cmd(USART1, ENABLE);                    //使能串口1 
 
-}
+} 
 
 void USART1_IRQHandler(void)                	//串口1中断服务程序
 	{
@@ -135,12 +139,26 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 #endif
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
 		{
-				Res =USART_ReceiveData(USART1);	//读取接收到的数据
-				if(Res==49)
+		Res =USART_ReceiveData(USART1);	//读取接收到的数据
+		
+		if((USART_RX_STA&0x8000)==0)//接收未完成
+			{
+			if(USART_RX_STA&0x4000)//接收到了0x0d
 				{
-						printf("%d",Res);		
+				if(Res!=0x0a)USART_RX_STA=0;//接收错误,重新开始
+				else USART_RX_STA|=0x8000;	//接收完成了 
 				}
-			//printf("%d",Res);					
+			else //还没收到0X0D
+				{	
+				if(Res==0x0d)USART_RX_STA|=0x4000;
+				else
+					{
+					USART_RX_BUF[USART_RX_STA&0X3FFF]=Res ;
+					USART_RX_STA++;
+					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//接收数据错误,重新开始接收	  
+					}		 
+				}
+			}   		 
      } 
 #if SYSTEM_SUPPORT_OS 	//如果SYSTEM_SUPPORT_OS为真，则需要支持OS.
 	OSIntExit();  											 

@@ -31,9 +31,9 @@
 ..\obj\components.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\components.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\components.o: ..\ky-thread\include\def.h
-..\obj\components.o: ..\..\os\kyconfig.h
+..\obj\components.o: ..\ky-thread\include\kyconfig.h
 ..\obj\components.o: ..\ky-thread\include\list.h
-..\obj\components.o: ..\ky-thread\libcpu\hw_settings.h
+..\obj\components.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\components.o: ..\ky-thread\include\thread.h
 ..\obj\components.o: ..\Hardware\led.h
 ..\obj\components.o: ..\SYSTEM\usart\usart.h

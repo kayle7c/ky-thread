@@ -70,12 +70,6 @@ char *ky_strncpy(char *dst,const char*src,ky_base_t n);
 int __ky_ffs(int value);
 									 
 //组件接口
-void kythread_startup(void);									 
-
-#if KY_USING_SHELL								 
-//shell组件接口									 
-void ky_shell_init(void);									
-
-#endif
+void kythread_startup(void);									 						
 
 #endif

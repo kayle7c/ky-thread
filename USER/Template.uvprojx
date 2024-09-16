@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\SYSTEM;..\Hardware;..\ky-thread\include;..\..\os;..\ky-thread\libcpu;..\ky-thread\src</IncludePath>
+              <IncludePath>..\CORE;..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\SYSTEM;..\Hardware;..\ky-thread\include;..\..\os;..\ky-thread\src;..\ky-thread\libcpu\Cotex-M3</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -552,11 +552,6 @@
               <FileType>1</FileType>
               <FilePath>..\SYSTEM\usart\usart.c</FilePath>
             </File>
-            <File>
-              <FileName>kyconfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\kyconfig.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -578,19 +573,19 @@
           <GroupName>libcpu</GroupName>
           <Files>
             <File>
+              <FileName>context_rvds.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\ky-thread\libcpu\Cotex-M3\context_rvds.s</FilePath>
+            </File>
+            <File>
               <FileName>hw_settings.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\ky-thread\libcpu\hw_settings.c</FilePath>
+              <FilePath>..\ky-thread\libcpu\Cotex-M3\hw_settings.c</FilePath>
             </File>
             <File>
               <FileName>hw_settings.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\ky-thread\libcpu\hw_settings.h</FilePath>
-            </File>
-            <File>
-              <FileName>context_rvds.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\ky-thread\libcpu\context_rvds.s</FilePath>
+              <FilePath>..\ky-thread\libcpu\Cotex-M3\hw_settings.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -662,15 +657,10 @@
               <FileType>5</FileType>
               <FilePath>..\ky-thread\include\list.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>components</GroupName>
-          <Files>
             <File>
-              <FileName>shell.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ky-thread\components\shell\shell.c</FilePath>
+              <FileName>kyconfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ky-thread\include\kyconfig.h</FilePath>
             </File>
           </Files>
         </Group>
