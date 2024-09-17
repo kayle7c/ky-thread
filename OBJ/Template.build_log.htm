@@ -22,31 +22,29 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 C:\Users\12396\Desktop\ѧϰ\Ƕ��ʽ\os\USER\Template.uvprojx
-Project File Date:  09/16/2024
+Project File Date:  09/17/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil\ARM\ARMCC\Bin'
 Build target 'Template'
-compiling main.c...
+compiling shell.c...
 ..\ky-thread\include\kyconfig.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
+..\ky-thread\include\thread.h(61): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
   void ky_system_timer_init();									 
-main.c(52): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
-  									test1_thread_entry,
-main.c(62): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
-  									test2_thread_entry,
-main.c: 4 warnings, 0 errors
-compiling components.c...
-..\ky-thread\include\kyconfig.h(18): warning:  #1-D: last line of file ends without a newline
+..\ky-thread\components\shell\shell.h(27): warning:  #1-D: last line of file ends without a newline
   #endif
-..\ky-thread\include\thread.h(60): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
-  void ky_system_timer_init();									 
-..\ky-thread\src\components.c(26): warning:  #1-D: last line of file ends without a newline
+..\ky-thread\components\shell\shell.c(53): warning:  #2820-D: string literal too long -- excess characters ignored
+  		char version[6]="version";
+..\ky-thread\components\shell\shell.c(153): warning:  #223-D: function "memset" declared implicitly
+  						memset(shell->cmd,0,sizeof(shell->cmd));
+..\ky-thread\components\shell\shell.c(172): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
+  									shell_thread_entry,
+..\ky-thread\components\shell\shell.c(182): warning:  #1-D: last line of file ends without a newline
   }
-..\ky-thread\src\components.c: 3 warnings, 0 errors
+..\ky-thread\components\shell\shell.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=4528 RO-data=268 RW-data=84 ZI-data=5116  
+Program Size: Code=5660 RO-data=268 RW-data=104 ZI-data=5176  
 FromELF: creating hex file...
 "..\OBJ\Template.axf" - 0 Error(s), 7 Warning(s).
 

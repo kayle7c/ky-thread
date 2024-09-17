@@ -158,22 +158,6 @@ struct ky_thread
 		struct ky_timer thread_timer; //内置的线程定时器
 };
 typedef struct ky_thread *ky_thread_t;
-
-enum input_stat
-{
-		WAIT_NORMAL_KEY,    //常规字符
-		WAIT_DIR_KEY,				//方向键（上下左右）
-		WAIT_FUNC_KEY,			//功能键
-};
-
-//shell结构体
-struct ky_shell
-{
-		enum input_stat stat;
-		
-		
-	
-};
 #endif
 
 

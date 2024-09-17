@@ -13,6 +13,6 @@
 #define KY_SHELL_PRIORITY           10
 #define KY_SHELL_STACK_SIZE         1024
 #define KY_SHELL_USART              USART1
-
+#define KY_SHELL_LENGSH								50
 
 #endif

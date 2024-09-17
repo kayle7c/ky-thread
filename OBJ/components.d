@@ -35,6 +35,6 @@
 ..\obj\components.o: ..\ky-thread\include\list.h
 ..\obj\components.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\components.o: ..\ky-thread\include\thread.h
-..\obj\components.o: ..\Hardware\led.h
 ..\obj\components.o: ..\SYSTEM\usart\usart.h
 ..\obj\components.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\components.o: ..\Hardware\led.h

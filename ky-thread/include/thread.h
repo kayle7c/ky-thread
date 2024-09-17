@@ -6,6 +6,7 @@
 #include "kyconfig.h"
 #include "list.h"
 #include "hw_settings.h"
+#include "usart.h"
 
 //线程接口
 ky_err_t ky_thread_init(struct ky_thread *thread,
@@ -68,6 +69,7 @@ void ky_timer_check(void);
 //内核服务函数接口
 char *ky_strncpy(char *dst,const char*src,ky_base_t n);
 int __ky_ffs(int value);
+void show_version(void);
 									 
 //组件接口
 void kythread_startup(void);		

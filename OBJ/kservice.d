@@ -35,3 +35,5 @@
 ..\obj\kservice.o: ..\ky-thread\include\list.h
 ..\obj\kservice.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\kservice.o: ..\ky-thread\include\thread.h
+..\obj\kservice.o: ..\SYSTEM\usart\usart.h
+..\obj\kservice.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h

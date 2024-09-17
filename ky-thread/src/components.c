@@ -5,6 +5,10 @@
 void kythread_startup(void)
 {
 		LED_Init();
+	
+		uart_init(115200);
+	
+		printf("hello");
 		
 		rt_hw_interrupt_disable();
 	

@@ -35,3 +35,5 @@
 ..\obj\irq.o: ..\ky-thread\include\list.h
 ..\obj\irq.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\irq.o: ..\ky-thread\include\thread.h
+..\obj\irq.o: ..\SYSTEM\usart\usart.h
+..\obj\irq.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h

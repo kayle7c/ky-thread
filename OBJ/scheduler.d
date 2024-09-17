@@ -35,3 +35,5 @@
 ..\obj\scheduler.o: ..\ky-thread\include\list.h
 ..\obj\scheduler.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\scheduler.o: ..\ky-thread\include\thread.h
+..\obj\scheduler.o: ..\SYSTEM\usart\usart.h
+..\obj\scheduler.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h

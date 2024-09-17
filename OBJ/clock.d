@@ -35,3 +35,5 @@
 ..\obj\clock.o: ..\ky-thread\include\list.h
 ..\obj\clock.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\clock.o: ..\ky-thread\include\thread.h
+..\obj\clock.o: ..\SYSTEM\usart\usart.h
+..\obj\clock.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h

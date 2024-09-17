@@ -32,3 +32,15 @@ int __ky_ffs(int value)
 		}	
 		return position;
 }
+
+void show_version(void)
+{
+		printf("\r\n");
+		printf("--------------------\r\n");
+		printf("|      welcome     |\r\n");
+		printf("|     ky-thread    |\r\n");
+		printf("|    version  is   |\r\n");
+		printf("|        V1.0      |\r\n");
+		printf("--------------------\r\n");
+		
+}
