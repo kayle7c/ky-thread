@@ -1,5 +1,6 @@
 #include "thread.h"
 #include "led.h"
+#include "cmd.h"
 
 ky_uint8_t flag1;
 ky_uint8_t flag2;

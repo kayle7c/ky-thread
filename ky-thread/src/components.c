@@ -8,7 +8,7 @@ void kythread_startup(void)
 	
 		uart_init(115200);
 	
-		printf("hello");
+		show_version();
 		
 		rt_hw_interrupt_disable();
 	

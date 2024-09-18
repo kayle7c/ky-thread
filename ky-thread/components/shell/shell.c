@@ -1,9 +1,13 @@
 #include "thread.h"
 #include "usart.h"
 #include "shell.h"
+#include "cmd.h"
 
 struct ky_thread ky_shell_thread;
 ky_uint8_t ky_shell_thread_stack[KY_SHELL_STACK_SIZE];
+
+static ky_cmd_t cmd_table[KY_CMD_NUM_MAX];
+ky_size_t current_cmd_num=0;
 
 struct ky_shell my_shell;
 struct ky_shell *shell = &my_shell;
@@ -29,25 +33,23 @@ int shell_getchar()
 		return ch;
 }
 
-void my_strcmp(char *cmd,char *sys_cmd,int sys_length)
+ky_ubase_t my_strcmp(char *cmd,char *sys_cmd)
 {
-		for(int i=0;i<sys_length;i++)
+		while(*cmd == *sys_cmd)
 		{
-				if(cmd[i]!=sys_cmd[i])
+				if(*cmd=='\0')
 				{
-						printf("\r\n");
-						printf("cmd not found!");
-						printf("\r\n");
-						printf("ky />");	
-						return; 
+						return 1;
 				}
+				cmd++;
+				sys_cmd++;
 		}
-		printf("\033[2J\033[H");
-		printf("ky />");
+		return 0;
 }
 
 void shell_match(char *cmd,ky_size_t length)	
 {
+#if 0
 		char clear[5]="clear";
 		int clearflag=1;
 		char version[6]="version";
@@ -78,6 +80,24 @@ void shell_match(char *cmd,ky_size_t length)
 		}
 		show_version();
 		printf("ky />");	
+#else 
+		for(int i=0;i<current_cmd_num;i++)
+		{
+				if(length == cmd_table[i].cmd_length)
+				{
+						if(my_strcmp(cmd,cmd_table[i].name))
+						{
+								cmd_table[i].entry(cmd_table[i].parameter);
+								printf("ky />");
+								return ;
+						}
+				}
+		}
+		printf("\r\n");
+		printf("cmd not found!");
+		printf("\r\n");
+		printf("ky />");
+#endif 
 }
 
 void shell_thread_entry()
@@ -164,9 +184,44 @@ void shell_thread_entry()
 		}
 }
 
+void cmd_list_add(char* name,
+									 ky_size_t length,
+									 void (*entry)(void *parameter),
+									 void *parameter)
+{
+			cmd_table[current_cmd_num].name=name;
+			cmd_table[current_cmd_num].cmd_length=length;
+			cmd_table[current_cmd_num].entry=entry;
+			cmd_table[current_cmd_num].parameter=parameter;
+	
+			current_cmd_num++;
+//		register ky_base_t temp;
+//		ky_cmd_t cmd;
+//		ky_list_init(&cmd.cmd_list);
+//	
+//		cmd.name=name;
+//		cmd.cmd_length=length;
+//		cmd.entry=entry;
+//		cmd.parameter=parameter;
+//	
+//		temp=rt_hw_interrupt_disable();
+//		ky_list_insert_before(&(cmd.cmd_list),&(cmd_head));
+//		rt_hw_interrupt_enable(temp);
+}
+
+void system_cmd_init()
+{
+		cmd_list_add("version",7,cmd_version,KY_NULL);
+		cmd_list_add("clear",5,cmd_clear,KY_NULL);
+		cmd_list_add("cpu",3,cmd_cpu,KY_NULL);
+		cmd_list_add("ps",2,cmd_ps,KY_NULL);
+		
+}
+
 //shell线程初始化
 void ky_shell_init(void)
 {
+		system_cmd_init();
 		ky_thread_init(&ky_shell_thread,
 									"shell",
 									shell_thread_entry,

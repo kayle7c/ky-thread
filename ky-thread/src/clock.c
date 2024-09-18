@@ -1,6 +1,6 @@
 #include "thread.h"
 
-static ky_tick_t ky_tick = 0;    //系统时基计数器
+ky_tick_t ky_tick = 0;    //系统时基计数器
 extern ky_list_t ky_thread_priority_table[KY_THREAD_PRIORITY_MAX];
 extern ky_uint32_t ky_thread_ready_priority_group;
 

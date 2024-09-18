@@ -42,5 +42,4 @@ void show_version(void)
 		printf("|    version  is   |\r\n");
 		printf("|        V1.0      |\r\n");
 		printf("--------------------\r\n");
-		
 }

@@ -38,3 +38,4 @@
 ..\obj\shell.o: ..\SYSTEM\usart\usart.h
 ..\obj\shell.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\shell.o: ..\ky-thread\components\shell\shell.h
+..\obj\shell.o: ..\ky-thread\components\shell\cmd.h

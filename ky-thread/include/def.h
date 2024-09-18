@@ -132,7 +132,7 @@ typedef struct ky_timer *ky_timer_t;
 //线程结构体
 struct ky_thread
 {
-		char name[KY_NAME_MAX];
+		char* name;
 		ky_uint8_t type;
 		ky_uint8_t flag;
 		ky_list_t list;          //对象链表节点

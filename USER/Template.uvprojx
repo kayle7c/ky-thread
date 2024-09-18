@@ -111,8 +111,8 @@
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
           <SimDllArguments> -REMAP</SimDllArguments>
-          <SimDlgDll>DCM.DLL</SimDlgDll>
-          <SimDlgDllArguments>-pCM3</SimDlgDllArguments>
+          <SimDlgDll>DARMSTM.DLL</SimDlgDll>
+          <SimDlgDllArguments>-pSTM32F103C8</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
           <TargetDllArguments></TargetDllArguments>
           <TargetDlgDll>TCM.DLL</TargetDlgDll>
@@ -676,6 +676,16 @@
               <FileName>shell.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\ky-thread\components\shell\shell.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\components\shell\cmd.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmd.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ky-thread\components\shell\cmd.h</FilePath>
             </File>
           </Files>
         </Group>

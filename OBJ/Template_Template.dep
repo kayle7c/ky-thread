@@ -1,5 +1,5 @@
 Dependencies for Project 'Template', Target 'Template': (DO NOT MODIFY !)
-F (.\main.c)(0x66E84B0B)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x66EAD17E)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\ky-thread\include\thread.h)(0x66E94C33)
 I (..\SYSTEM\sys\sys.h)(0x5822B9C2)
 I (..\USER\stm32f10x.h)(0x66D45DF1)
@@ -30,13 +30,14 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
 I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (..\Hardware\led.h)(0x66DC0B9B)
+I (..\ky-thread\components\shell\cmd.h)(0x66EAEA8F)
 F (.\stm32f10x_it.c)(0x66E7D8D8)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x4D99A59E)
 I (stm32f10x.h)(0x66D45DF1)
@@ -925,16 +926,16 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
 I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 F (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)()
-F (..\ky-thread\src\thread.c)(0x66E7E632)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\thread.o --omf_browse ..\obj\thread.crf --depend ..\obj\thread.d)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+F (..\ky-thread\src\thread.c)(0x66EAEB2F)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\thread.o --omf_browse ..\obj\thread.crf --depend ..\obj\thread.d)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\ky-thread\include\thread.h)(0x66E94C33)
@@ -1000,8 +1001,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
@@ -1037,13 +1038,13 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
 I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-F (..\ky-thread\src\kservice.c)(0x66E94CAF)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\kservice.o --omf_browse ..\obj\kservice.crf --depend ..\obj\kservice.d)
+F (..\ky-thread\src\kservice.c)(0x66EA64F5)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\kservice.o --omf_browse ..\obj\kservice.crf --depend ..\obj\kservice.d)
 I (..\ky-thread\include\thread.h)(0x66E94C33)
 I (..\SYSTEM\sys\sys.h)(0x5822B9C2)
 I (..\USER\stm32f10x.h)(0x66D45DF1)
@@ -1074,8 +1075,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
@@ -1111,13 +1112,13 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
 I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-F (..\ky-thread\src\clock.c)(0x66E53D07)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\clock.o --omf_browse ..\obj\clock.crf --depend ..\obj\clock.d)
+F (..\ky-thread\src\clock.c)(0x66EACFEA)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\clock.o --omf_browse ..\obj\clock.crf --depend ..\obj\clock.d)
 I (..\ky-thread\include\thread.h)(0x66E94C33)
 I (..\SYSTEM\sys\sys.h)(0x5822B9C2)
 I (..\USER\stm32f10x.h)(0x66D45DF1)
@@ -1148,8 +1149,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
@@ -1185,8 +1186,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
@@ -1222,13 +1223,13 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
 I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-F (..\ky-thread\src\components.c)(0x66E91FF1)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\components.o --omf_browse ..\obj\components.crf --depend ..\obj\components.d)
+F (..\ky-thread\src\components.c)(0x66EAE7EC)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\components.o --omf_browse ..\obj\components.crf --depend ..\obj\components.d)
 I (..\ky-thread\include\thread.h)(0x66E94C33)
 I (..\SYSTEM\sys\sys.h)(0x5822B9C2)
 I (..\USER\stm32f10x.h)(0x66D45DF1)
@@ -1259,18 +1260,18 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
 I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (..\Hardware\led.h)(0x66DC0B9B)
 F (..\ky-thread\include\thread.h)(0x66E94C33)()
-F (..\ky-thread\include\def.h)(0x66E92350)()
+F (..\ky-thread\include\def.h)(0x66EAEB2F)()
 F (..\ky-thread\include\list.h)(0x66D6A702)()
-F (..\ky-thread\include\kyconfig.h)(0x66E937FD)()
-F (..\ky-thread\components\shell\shell.c)(0x66E94CC9)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\shell.o --omf_browse ..\obj\shell.crf --depend ..\obj\shell.d)
+F (..\ky-thread\include\kyconfig.h)(0x66EADA9B)()
+F (..\ky-thread\components\shell\shell.c)(0x66EAE970)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\shell.o --omf_browse ..\obj\shell.crf --depend ..\obj\shell.d)
 I (..\ky-thread\include\thread.h)(0x66E94C33)
 I (..\SYSTEM\sys\sys.h)(0x5822B9C2)
 I (..\USER\stm32f10x.h)(0x66D45DF1)
@@ -1301,11 +1302,50 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\ky-thread\include\def.h)(0x66E92350)
-I (..\ky-thread\include\kyconfig.h)(0x66E937FD)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
 I (..\ky-thread\include\list.h)(0x66D6A702)
 I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
 I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
 I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-I (..\ky-thread\components\shell\shell.h)(0x66E94753)
-F (..\ky-thread\components\shell\shell.h)(0x66E94753)()
+I (..\ky-thread\components\shell\shell.h)(0x66EADA69)
+I (..\ky-thread\components\shell\cmd.h)(0x66EAEA8F)
+F (..\ky-thread\components\shell\shell.h)(0x66EADA69)()
+F (..\ky-thread\components\shell\cmd.c)(0x66EAEAB6)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM -I ..\Hardware -I ..\ky-thread\include -I ..\..\os -I ..\ky-thread\src -I ..\ky-thread\libcpu\Cotex-M3 -I ..\ky-thread\components\shell-I.\RTE\_Template-ID:\keil\Keil\STM32F1xx_DFP\1.0.5\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\cmd.o --omf_browse ..\obj\cmd.crf --depend ..\obj\cmd.d)
+I (..\ky-thread\include\thread.h)(0x66E94C33)
+I (..\SYSTEM\sys\sys.h)(0x5822B9C2)
+I (..\USER\stm32f10x.h)(0x66D45DF1)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\keil\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x4D99A59E)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\ky-thread\include\def.h)(0x66EAEB2F)
+I (..\ky-thread\include\kyconfig.h)(0x66EADA9B)
+I (..\ky-thread\include\list.h)(0x66D6A702)
+I (..\ky-thread\libcpu\Cotex-M3\hw_settings.h)(0x66E848BB)
+I (..\SYSTEM\usart\usart.h)(0x5822B9C2)
+I (D:\keil\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+F (..\ky-thread\components\shell\cmd.h)(0x66EAEA8F)()

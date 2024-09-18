@@ -21,6 +21,7 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 	
 		ky_list_init(&(thread->tlist));
 		
+		thread->name=name;
 		thread->entry=(void *)entry;
 		thread->parameter=parameter;
 		

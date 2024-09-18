@@ -15,4 +15,6 @@
 #define KY_SHELL_USART              USART1
 #define KY_SHELL_LENGSH								50
 
+#define KY_CMD_NUM_MAX              200
+
 #endif
