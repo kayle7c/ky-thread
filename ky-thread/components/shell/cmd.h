@@ -7,5 +7,6 @@ void cmd_version(void* parameter);
 void cmd_clear(void* parameter);
 void cmd_cpu(void* parameter);
 void cmd_ps(void* parameter);
+void cmd_reboot(void* parameter);
 
 #endif

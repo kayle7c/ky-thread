@@ -103,6 +103,8 @@ void shell_match(char *cmd,ky_size_t length)
 void shell_thread_entry()
 {
 		int ch;
+		shell->current_history=0;
+		shell->history_cnt=0;
 	
 		//up key  : 0x1b 0x5b 0x41
     //down key: 0x1b 0x5b 0x42
@@ -139,8 +141,24 @@ void shell_thread_entry()
 						shell->stat=WAIT_NORMAL_KEY;
 						if(ch==0x41)
 						{
+								if(shell->current_history>0)
+								{
+										shell->current_history--;
+										printf("%s",shell->history[shell->current_history]);
+//										shell->cmd=shell->history[shell->current_history];
+								}
 								printf("up");
 								continue;
+						}
+						if(ch==0x42)
+						{
+								if(shell->current_history<shell->history_cnt)
+								{
+									shell->current_history++;
+									printf("%s",shell->history[shell->current_history]);
+//									shell->cmd=shell->history[shell->current_history];
+								}
+
 						}
 				}
 //***************************************************************
@@ -169,6 +187,14 @@ void shell_thread_entry()
 //*********************处理回车键********************************				
 				if(ch=='\r'||ch=='\n')
 				{
+						if(shell->position==0)
+						{
+								printf("\r\nky />");
+								continue;
+						}
+						shell->history[shell->history_cnt]=shell->cmd;
+						shell->history_cnt++;
+						shell->current_history=shell->history_cnt;
 						shell_match(shell->cmd,shell->position);					
 						memset(shell->cmd,0,sizeof(shell->cmd));
 						shell->position=0;
@@ -215,6 +241,7 @@ void system_cmd_init()
 		cmd_list_add("clear",5,cmd_clear,KY_NULL);
 		cmd_list_add("cpu",3,cmd_cpu,KY_NULL);
 		cmd_list_add("ps",2,cmd_ps,KY_NULL);
+		cmd_list_add("reboot",6,cmd_reboot,KY_NULL);
 		
 }
 

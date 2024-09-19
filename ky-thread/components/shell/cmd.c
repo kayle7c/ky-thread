@@ -30,6 +30,12 @@ void cmd_ps(void* parameter)
 	
 }
 
+void cmd_reboot(void* parameter)
+{
+		__set_FAULTMASK(1);//关闭所有中断
+		NVIC_SystemReset();//复位函数	
+}
+
 void cmd_cpu(void* parameter)
 {
 		float use=1-(ky_idletask_cnt/ky_tick);

@@ -24,6 +24,10 @@ struct ky_shell
 		
 		char cmd[KY_SHELL_LENGSH];	//指令内容
 	
+		char* history[KY_SHELL_HISORY_MAX];
+		ky_size_t history_cnt;
+		ky_size_t current_history;
+	
 		ky_size_t position;     	//当前行长度
 		ky_size_t curpos;     		//光标的位置
 };
