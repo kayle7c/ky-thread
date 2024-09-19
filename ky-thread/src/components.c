@@ -6,7 +6,7 @@ void kythread_startup(void)
 {
 		LED_Init();
 	
-		uart_init(115200);
+		uart_init(9600);
 	
 		show_version();
 		

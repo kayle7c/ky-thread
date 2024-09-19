@@ -68,6 +68,8 @@ void ky_timer_check(void);
 										
 //内核服务函数接口
 char *ky_strncpy(char *dst,const char*src,ky_base_t n);
+int ky_strlen(char* src);
+ky_ubase_t ky_strcmp(char *src1,char *src2);
 int __ky_ffs(int value);
 void show_version(void);
 									 

@@ -28,25 +28,27 @@ Project File Date:  09/19/2024
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil\ARM\ARMCC\Bin'
 Build target 'Template'
 compiling shell.c...
-..\ky-thread\include\kyconfig.h(21): warning:  #1-D: last line of file ends without a newline
+..\ky-thread\include\kyconfig.h(22): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\ky-thread\include\thread.h(61): warning:  #1295-D: Deprecated declaration ky_system_timer_init - give arg types
   void ky_system_timer_init();									 
 ..\ky-thread\components\shell\shell.h(35): warning:  #1-D: last line of file ends without a newline
   #endif
-..\ky-thread\components\shell\cmd.h(12): warning:  #1-D: last line of file ends without a newline
+..\ky-thread\components\shell\cmd.h(10): warning:  #1-D: last line of file ends without a newline
   #endif
-..\ky-thread\components\shell\shell.c(199): warning:  #223-D: function "memset" declared implicitly
-  						memset(shell->cmd,0,sizeof(shell->cmd));
-..\ky-thread\components\shell\shell.c(254): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
-  									shell_thread_entry,
-..\ky-thread\components\shell\shell.c(264): warning:  #1-D: last line of file ends without a newline
+..\ky-thread\components\shell\shell.c(110): warning:  #940-D: missing return statement at end of non-void function "shell_auto_complete" 
   }
-..\ky-thread\components\shell\shell.c: 7 warnings, 0 errors
+..\ky-thread\components\shell\shell.c(209): warning:  #223-D: function "memset" declared implicitly
+  						memset(shell->cmd,0,sizeof(shell->cmd));
+..\ky-thread\components\shell\shell.c(252): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(void *)"
+  									shell_thread_entry,
+..\ky-thread\components\shell\shell.c(262): warning:  #1-D: last line of file ends without a newline
+  }
+..\ky-thread\components\shell\shell.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=6636 RO-data=268 RW-data=108 ZI-data=8484  
+Program Size: Code=7512 RO-data=288 RW-data=112 ZI-data=8544  
 FromELF: creating hex file...
-"..\OBJ\Template.axf" - 0 Error(s), 7 Warning(s).
+"..\OBJ\Template.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 

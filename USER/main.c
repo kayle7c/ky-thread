@@ -43,6 +43,7 @@ void test2_thread_entry()
 		}
 }
 
+
 int main()
 {
 		kythread_startup();

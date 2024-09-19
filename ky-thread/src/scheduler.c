@@ -152,7 +152,8 @@ void ky_schedule(void)
 		to_thread = ky_list_entry(ky_thread_priority_table[highest_ready_priority].next,
                             struct ky_thread,
                             tlist);
-		
+														
+														
 		//如果目标线程不是当前的线程，就需要调度												
 		if(to_thread != ky_current_thread)
 		{				

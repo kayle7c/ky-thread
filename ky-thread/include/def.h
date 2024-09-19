@@ -148,6 +148,8 @@ struct ky_thread
 		ky_ubase_t init_tick;  			//初始时间片
 		ky_ubase_t remaining_tick;  //剩余时间片
 	
+		ky_size_t  run_time;
+	
 		ky_uint8_t  current_priority;     
     ky_uint8_t  init_priority;       
     ky_uint32_t number_mask;          

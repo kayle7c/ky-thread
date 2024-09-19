@@ -7,6 +7,9 @@ extern struct ky_thread *ky_current_thread;
 extern ky_uint32_t ky_thread_ready_priority_group;
 extern ky_list_t ky_thread_priority_table[KY_THREAD_PRIORITY_MAX];
 
+ky_thread_t thread_array[10];
+ky_size_t thread_cnt=0;
+
 ky_err_t ky_thread_init(struct ky_thread *thread,
 												const char *name,
 												void (*entry)(void *parameter),
@@ -18,6 +21,8 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 
 {
 //		ky_object_init((ky_object_t)thread, KY_Object_Class_Thread, name);
+		thread_array[thread_cnt]=thread;
+		thread_cnt++;
 	
 		ky_list_init(&(thread->tlist));
 		
@@ -43,6 +48,8 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 		//初始化时间片
 		thread->init_tick=tick;
 		thread->remaining_tick=tick;
+		
+		thread->run_time=0;
 		
 		//初始化定时器
 		ky_timer_init(&(thread->thread_timer),

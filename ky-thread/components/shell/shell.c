@@ -6,7 +6,7 @@
 struct ky_thread ky_shell_thread;
 ky_uint8_t ky_shell_thread_stack[KY_SHELL_STACK_SIZE];
 
-static ky_cmd_t cmd_table[KY_CMD_NUM_MAX];
+ky_cmd_t cmd_table[KY_CMD_NUM_MAX];
 ky_size_t current_cmd_num=0;
 
 struct ky_shell my_shell;
@@ -15,7 +15,7 @@ struct ky_shell *shell = &my_shell;
 int shell_getchar()
 {
 		int ch=-1;
-	
+		
 		//如果有数据
 		if(USART_GetFlagStatus(KY_SHELL_USART, USART_FLAG_RXNE) != RESET)
 		{
@@ -28,23 +28,9 @@ int shell_getchar()
 				{
 						printf("error");
 				}
-				ky_thread_delay_ms(100);
+				ky_thread_delay_ms(10);
 		}
 		return ch;
-}
-
-ky_ubase_t my_strcmp(char *cmd,char *sys_cmd)
-{
-		while(*cmd == *sys_cmd)
-		{
-				if(*cmd=='\0')
-				{
-						return 1;
-				}
-				cmd++;
-				sys_cmd++;
-		}
-		return 0;
 }
 
 void shell_match(char *cmd,ky_size_t length)	
@@ -85,7 +71,7 @@ void shell_match(char *cmd,ky_size_t length)
 		{
 				if(length == cmd_table[i].cmd_length)
 				{
-						if(my_strcmp(cmd,cmd_table[i].name))
+						if(ky_strcmp(cmd,cmd_table[i].name))
 						{
 								cmd_table[i].entry(cmd_table[i].parameter);
 								printf("ky />");
@@ -93,11 +79,34 @@ void shell_match(char *cmd,ky_size_t length)
 						}
 				}
 		}
-		printf("\r\n");
 		printf("cmd not found!");
 		printf("\r\n");
 		printf("ky />");
 #endif 
+}
+
+ky_size_t shell_auto_complete(char* cmd,ky_size_t length)
+{
+		int complete_num=0;
+		int cmd_index=0;
+		for(int i=0;i<current_cmd_num;i++)
+		{
+				if(ky_strcmp(cmd,cmd_table[i].name))
+				{
+						complete_num++;
+						cmd_index=i;
+				}
+		}
+		if(complete_num==1)
+		{
+			for(int j=0;j<length;j++)
+			{
+					printf("\b \b");
+			}
+			printf("%s",cmd_table[cmd_index].name);
+			ky_strncpy(shell->cmd,cmd_table[cmd_index].name,cmd_table[cmd_index].cmd_length);
+			shell->position=cmd_table[cmd_index].cmd_length;
+		}
 }
 
 void shell_thread_entry()
@@ -162,15 +171,15 @@ void shell_thread_entry()
 						}
 				}
 //***************************************************************
-//*********************处理tab键*********************************
+//*********************处理tab键*********************************clear  cl
 				if(ch=='\t')
 				{
-							
-					
+						shell_auto_complete(shell->cmd,shell->position);
+						continue;
 				}
 //***************************************************************
 //*********************处理退格键********************************
-				if(ch==0x08)
+				else if(ch==0x08)
 				{
 						//光标位置在开头
 						if(shell->curpos==0)
@@ -185,11 +194,12 @@ void shell_thread_entry()
 				}
 //***************************************************************
 //*********************处理回车键********************************				
-				if(ch=='\r'||ch=='\n')
+				else if(ch=='\r'||ch=='\n')
 				{
+						printf("\r\n");
 						if(shell->position==0)
 						{
-								printf("\r\nky />");
+								printf("ky />");
 								continue;
 						}
 						shell->history[shell->history_cnt]=shell->cmd;
@@ -210,6 +220,7 @@ void shell_thread_entry()
 		}
 }
 
+
 void cmd_list_add(char* name,
 									 ky_size_t length,
 									 void (*entry)(void *parameter),
@@ -221,29 +232,16 @@ void cmd_list_add(char* name,
 			cmd_table[current_cmd_num].parameter=parameter;
 	
 			current_cmd_num++;
-//		register ky_base_t temp;
-//		ky_cmd_t cmd;
-//		ky_list_init(&cmd.cmd_list);
-//	
-//		cmd.name=name;
-//		cmd.cmd_length=length;
-//		cmd.entry=entry;
-//		cmd.parameter=parameter;
-//	
-//		temp=rt_hw_interrupt_disable();
-//		ky_list_insert_before(&(cmd.cmd_list),&(cmd_head));
-//		rt_hw_interrupt_enable(temp);
 }
 
 void system_cmd_init()
 {
 		cmd_list_add("version",7,cmd_version,KY_NULL);
 		cmd_list_add("clear",5,cmd_clear,KY_NULL);
-		cmd_list_add("cpu",3,cmd_cpu,KY_NULL);
 		cmd_list_add("ps",2,cmd_ps,KY_NULL);
 		cmd_list_add("reboot",6,cmd_reboot,KY_NULL);
-		
-}
+		cmd_list_add("help",4,cmd_help,KY_NULL);
+}		
 
 //shell线程初始化
 void ky_shell_init(void)

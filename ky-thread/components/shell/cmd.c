@@ -4,6 +4,9 @@ extern ky_tick_t ky_tick;
 extern ky_ubase_t ky_idletask_cnt;
 extern ky_list_t ky_thread_priority_table[KY_THREAD_PRIORITY_MAX];
 
+extern ky_thread_t thread_array[KY_THREAD_NUM_MAX];
+extern ky_size_t thread_cnt;
+
 void cmd_version(void* parameter)
 {
 		show_version();
@@ -17,30 +20,31 @@ void cmd_clear(void* parameter)
 void cmd_ps(void* parameter)
 {
 		struct ky_thread *thread;
-		for(int i=0;i<KY_THREAD_PRIORITY_MAX;i++)
+		printf("thread    pri  status\r\n");
+		printf("--------  ---  ------\r\n");
+		for(int i=0;i<thread_cnt;i++)
 		{
-				thread=ky_list_entry(ky_thread_priority_table[i].next,struct ky_thread,tlist);
-//				if(ky_thread_priority_table[i])
-//				{
-//					
-//						printf("%s  %d   ",);
-//				}
-				printf("%s\r\n",thread->name);
+				printf("%-8s  %-5d",thread_array[i]->name,thread_array[i]->current_priority);
+				if(thread_array[i]->stat==KY_THREAD_READY)					printf("ready\r\n");
+				else if(thread_array[i]->stat==KY_THREAD_RUNNING)		printf("running\r\n");
+				else if(thread_array[i]->stat==KY_THREAD_SUSPEND)		printf("suspend\r\n");
+				else if(thread_array[i]->stat==KY_THREAD_INIT)			printf("init\r\n");
+				else if(thread_array[i]->stat==KY_THREAD_CLOSE)			printf("close\r\n");
 		}
-	
+
+}
+
+void cmd_help(void* parameter)
+{
+		printf("ps              	-List threads in the system\r\n");
+		printf("version         	-show KY-Thread version information\r\n");
+		printf("clear         		-clear the terminal screen\r\n");
+		printf("reboot         		-Reboot System\r\n");
+		
 }
 
 void cmd_reboot(void* parameter)
 {
 		__set_FAULTMASK(1);//关闭所有中断
 		NVIC_SystemReset();//复位函数	
-}
-
-void cmd_cpu(void* parameter)
-{
-		float use=1-(ky_idletask_cnt/ky_tick);
-		printf("%d\r\n",ky_idletask_cnt);
-		printf("%d\r\n",ky_tick);
-		ky_idletask_cnt=0;
-		ky_tick=0;
 }

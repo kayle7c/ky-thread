@@ -6,7 +6,6 @@ char *ky_strncpy(char *dst,const char*src,ky_base_t n)
     {
         char *d = dst;
         const char *s = src;
-
         do
         {
             if ((*d++ = *s++) == 0)
@@ -19,6 +18,31 @@ char *ky_strncpy(char *dst,const char*src,ky_base_t n)
     }
 
     return (dst);
+}
+
+int ky_strlen(char* src)
+{
+		int len=0;
+		while(*src++ != '\0')
+		{
+				len++;
+		}
+		return len;
+}
+
+//如果src1被包含于src2返回1，否则返回0
+ky_ubase_t ky_strcmp(char *src1,char *src2)
+{
+		while(*src1 == *src2)
+		{
+				src1++;
+				src2++;
+				if(*src1=='\0')
+				{
+						return 1;
+				}
+		}
+		return 0;
 }
 
 int __ky_ffs(int value)
@@ -35,7 +59,6 @@ int __ky_ffs(int value)
 
 void show_version(void)
 {
-		printf("\r\n");
 		printf("--------------------\r\n");
 		printf("|      welcome     |\r\n");
 		printf("|     ky-thread    |\r\n");
