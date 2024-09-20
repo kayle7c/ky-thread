@@ -37,3 +37,4 @@
 ..\obj\kservice.o: ..\ky-thread\include\thread.h
 ..\obj\kservice.o: ..\SYSTEM\usart\usart.h
 ..\obj\kservice.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\kservice.o: ..\ky-thread\components\ipc\include\ringbuffer.h

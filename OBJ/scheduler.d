@@ -37,3 +37,4 @@
 ..\obj\scheduler.o: ..\ky-thread\include\thread.h
 ..\obj\scheduler.o: ..\SYSTEM\usart\usart.h
 ..\obj\scheduler.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\scheduler.o: ..\ky-thread\components\ipc\include\ringbuffer.h

@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\SYSTEM;..\Hardware;..\ky-thread\include;..\..\os;..\ky-thread\src;..\ky-thread\libcpu\Cotex-M3;..\ky-thread\components\shell</IncludePath>
+              <IncludePath>..\CORE;..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\SYSTEM;..\Hardware;..\ky-thread\include;..\..\os;..\ky-thread\src;..\ky-thread\libcpu\Cotex-M3;..\ky-thread\components\shell;..\ky-thread\components\ipc\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -686,6 +686,21 @@
               <FileName>cmd.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\ky-thread\components\shell\cmd.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ipc</GroupName>
+          <Files>
+            <File>
+              <FileName>ringbuffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ky-thread\components\ipc\src\ringbuffer.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringbuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ky-thread\components\ipc\include\ringbuffer.h</FilePath>
             </File>
           </Files>
         </Group>

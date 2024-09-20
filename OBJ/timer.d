@@ -37,3 +37,4 @@
 ..\obj\timer.o: ..\ky-thread\include\thread.h
 ..\obj\timer.o: ..\SYSTEM\usart\usart.h
 ..\obj\timer.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\timer.o: ..\ky-thread\components\ipc\include\ringbuffer.h

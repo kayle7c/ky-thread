@@ -37,5 +37,6 @@
 ..\obj\main.o: ..\ky-thread\include\thread.h
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\main.o: ..\ky-thread\components\ipc\include\ringbuffer.h
 ..\obj\main.o: ..\Hardware\led.h
 ..\obj\main.o: ..\ky-thread\components\shell\cmd.h

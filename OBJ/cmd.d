@@ -37,3 +37,4 @@
 ..\obj\cmd.o: ..\ky-thread\include\thread.h
 ..\obj\cmd.o: ..\SYSTEM\usart\usart.h
 ..\obj\cmd.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\cmd.o: ..\ky-thread\components\ipc\include\ringbuffer.h

@@ -5,7 +5,10 @@
 
 typedef signed   long         ky_int32_t;
 typedef unsigned   long       ky_uint32_t;
+typedef signed   short        ky_int16_t;
+typedef signed   char         ky_int8_t;
 typedef unsigned char         ky_uint8_t; 
+typedef unsigned short        ky_uint16_t;
 
 typedef long									ky_base_t; 
 typedef unsigned long         ky_ubase_t;

@@ -12,11 +12,14 @@ ky_size_t current_cmd_num=0;
 struct ky_shell my_shell;
 struct ky_shell *shell = &my_shell;
 
-int shell_getchar()
+struct ky_ringbuffer shell_ringbuffer;
+ky_uint8_t ringbuffer[200];
+
+char shell_getchar()
 {
-		int ch=-1;
+		char ch=-1;
 		
-		//如果有数据
+#if 0		//如果有数据
 		if(USART_GetFlagStatus(KY_SHELL_USART, USART_FLAG_RXNE) != RESET)
 		{
 				ch = USART_ReceiveData(KY_SHELL_USART);			
@@ -30,6 +33,16 @@ int shell_getchar()
 				}
 				ky_thread_delay_ms(10);
 		}
+#else 
+		if(!ky_ringbuffer_isempty(&shell_ringbuffer))
+		{
+				ky_ringbuffer_getchar(&shell_ringbuffer,&ch);
+		}
+		else
+		{
+				ky_thread_delay_ms(10);
+		}
+#endif
 		return ch;
 }
 
@@ -117,13 +130,13 @@ void shell_thread_entry()
 	
 		//up key  : 0x1b 0x5b 0x41
     //down key: 0x1b 0x5b 0x42
-    //right key:0x1b 0x5b 0x43
-    //left key: 0x1b 0x5b 0x44
+    //right key:0x1b 0x5b 0x44
+    //left key: 0x1b 0x5b 0x43
 		printf("ky />");
 		while(1)
 		{
 				ch=shell_getchar();
-				if(ch<0)
+				if(ch==0XFF)
 				{
 						continue;
 				}
@@ -132,14 +145,12 @@ void shell_thread_entry()
 				if(ch==0x1b)
 				{
 						shell->stat=WAIT_DIR_KEY;
-						printf("1");
 						continue;
 				}
 				else if(shell->stat==WAIT_DIR_KEY)
 				{
 						if(ch==0x5b)
 						{	
-								printf("2");
 								shell->stat=WAIT_FUNC_KEY;
 								continue;
 						}
@@ -150,28 +161,54 @@ void shell_thread_entry()
 						shell->stat=WAIT_NORMAL_KEY;
 						if(ch==0x41)
 						{
+								printf("%d",shell->current_history);
 								if(shell->current_history>0)
 								{
 										shell->current_history--;
 										printf("%s",shell->history[shell->current_history]);
-//										shell->cmd=shell->history[shell->current_history];
+										memcpy(&shell->cmd,
+													 &shell->history[shell->current_history],
+													 ky_strlen(shell->history[shell->current_history]));
 								}
-								printf("up");
+								//printf("up");
 								continue;
 						}
-						if(ch==0x42)
+						else if(ch==0x42)
 						{
+								//printf("down");
 								if(shell->current_history<shell->history_cnt)
 								{
 									shell->current_history++;
 									printf("%s",shell->history[shell->current_history]);
-//									shell->cmd=shell->history[shell->current_history];
+									memcpy(&shell->cmd,
+													 &shell->history[shell->current_history],
+													 ky_strlen(shell->history[shell->current_history]));
 								}
+								continue;
 
+						}
+						else if(ch==0x43)
+						{
+								if(shell->curpos<shell->position)
+								{
+										printf("%c",shell->cmd[shell->curpos]);
+										shell->curpos++;
+								}	
+								//printf("left");
+								continue;
+						}
+						else if(ch==0x44)
+						{
+								if(shell->curpos>0)
+								{
+										printf("\b");
+										shell->curpos--;
+								}
+								continue;
 						}
 				}
 //***************************************************************
-//*********************处理tab键*********************************clear  cl
+//*********************处理tab键*********************************
 				if(ch=='\t')
 				{
 						shell_auto_complete(shell->cmd,shell->position);
@@ -197,12 +234,14 @@ void shell_thread_entry()
 				else if(ch=='\r'||ch=='\n')
 				{
 						printf("\r\n");
-						if(shell->position==0)
+						if(shell->position==0 || shell->position>=KY_SHELL_LENGSH)
 						{
 								printf("ky />");
 								continue;
 						}
-						shell->history[shell->history_cnt]=shell->cmd;
+						memcpy(&shell->history[shell->current_history],
+								   &shell->cmd,
+									 ky_strlen(shell->cmd));
 						shell->history_cnt++;
 						shell->current_history=shell->history_cnt;
 						shell_match(shell->cmd,shell->position);					
@@ -212,11 +251,26 @@ void shell_thread_entry()
 						continue;
 				}
 ////***************************************************************
-////*********************处理常规字符******************************			
-				shell->cmd[shell->position]=ch;
-				printf("%c",ch);
-				shell->position++;
-				shell->curpos++;
+////*********************处理常规字符******************************		
+				if(shell->curpos<shell->position)
+				{
+						ky_memmove(&shell->cmd[shell->curpos+1],
+											 &shell->cmd[shell->curpos],
+											 shell->position-shell->curpos);
+						shell->cmd[shell->curpos]=ch;
+						printf("%s",&shell->cmd[shell->curpos]);
+						for(int i=shell->curpos;i<shell->position;i++)
+						{
+								printf("\b");
+						}
+				}
+				else
+				{
+						shell->cmd[shell->position]=ch;
+						printf("%c",ch);
+						shell->position++;
+						shell->curpos++;
+				}
 		}
 }
 
@@ -247,6 +301,7 @@ void system_cmd_init()
 void ky_shell_init(void)
 {
 		system_cmd_init();
+		ky_ringbuffer_init(&shell_ringbuffer,ringbuffer,200);
 		ky_thread_init(&ky_shell_thread,
 									"shell",
 									shell_thread_entry,

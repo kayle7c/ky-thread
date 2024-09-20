@@ -37,3 +37,5 @@
 ..\obj\thread.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
 ..\obj\thread.o: ..\SYSTEM\usart\usart.h
 ..\obj\thread.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\thread.o: ..\ky-thread\components\ipc\include\ringbuffer.h
+..\obj\thread.o: ..\ky-thread\include\thread.h

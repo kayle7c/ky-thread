@@ -31,3 +31,11 @@
 ..\obj\usart.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\usart.o: ..\SYSTEM\usart\usart.h
 ..\obj\usart.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\usart.o: ..\ky-thread\components\ipc\include\ringbuffer.h
+..\obj\usart.o: ..\ky-thread\include\thread.h
+..\obj\usart.o: ..\ky-thread\include\def.h
+..\obj\usart.o: ..\ky-thread\include\kyconfig.h
+..\obj\usart.o: ..\ky-thread\include\list.h
+..\obj\usart.o: ..\ky-thread\libcpu\Cotex-M3\hw_settings.h
+..\obj\usart.o: ..\ky-thread\include\thread.h
+..\obj\usart.o: ..\ky-thread\components\ipc\include\ringbuffer.h

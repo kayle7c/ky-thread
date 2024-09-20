@@ -31,7 +31,7 @@ int ky_strlen(char* src)
 }
 
 //如果src1被包含于src2返回1，否则返回0
-ky_ubase_t ky_strcmp(char *src1,char *src2)
+int ky_strcmp(char *src1,char *src2)
 {
 		while(*src1 == *src2)
 		{
@@ -44,6 +44,29 @@ ky_ubase_t ky_strcmp(char *src1,char *src2)
 		}
 		return 0;
 }
+
+void *ky_memmove(void *dest, const void *src, ky_ubase_t n)
+{
+    char *tmp = (char *)dest, *s = (char *)src;
+
+    if (s < tmp && tmp < s + n)
+    {
+        tmp += n;
+        s += n;
+
+        while (n--)
+            *(--tmp) = *(--s);
+    }
+    else
+    {
+        while (n--)
+            *tmp++ = *s++;
+    }
+
+    return dest;
+}
+
+
 
 int __ky_ffs(int value)
 {

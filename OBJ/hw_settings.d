@@ -37,3 +37,4 @@
 ..\obj\hw_settings.o: ..\ky-thread\include\thread.h
 ..\obj\hw_settings.o: ..\SYSTEM\usart\usart.h
 ..\obj\hw_settings.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\hw_settings.o: ..\ky-thread\components\ipc\include\ringbuffer.h
