@@ -102,23 +102,40 @@ ky_size_t shell_auto_complete(char* cmd,ky_size_t length)
 {
 		int complete_num=0;
 		int cmd_index=0;
+		int cmd_indexs[10];
+		int cmd_num=0;
 		for(int i=0;i<current_cmd_num;i++)
 		{
 				if(ky_strcmp(cmd,cmd_table[i].name))
 				{
 						complete_num++;
 						cmd_index=i;
+						if(cmd_num<10)		cmd_indexs[cmd_num++]=i;
 				}
 		}
-		if(complete_num==1)
+		if(complete_num==0)
 		{
-			for(int j=0;j<length;j++)
-			{
-					printf("\b \b");
-			}
-			printf("%s",cmd_table[cmd_index].name);
-			ky_strncpy(shell->cmd,cmd_table[cmd_index].name,cmd_table[cmd_index].cmd_length);
-			shell->position=cmd_table[cmd_index].cmd_length;
+				return 0;
+		}
+		else if(complete_num==1)
+		{
+				for(int j=0;j<length;j++)
+				{
+						printf("\b \b");
+				}
+				printf("%s",cmd_table[cmd_index].name);
+				ky_strncpy(shell->cmd,cmd_table[cmd_index].name,cmd_table[cmd_index].cmd_length);
+				shell->position=cmd_table[cmd_index].cmd_length;
+		}
+		else
+		{
+				printf("\r\n");
+				for(int i=0;i<cmd_num;i++)
+				{
+						printf("%s ",cmd_table[cmd_indexs[i]].name);
+				}		
+				printf("\r\n");
+				printf("ky />");	
 		}
 }
 
@@ -193,7 +210,7 @@ void shell_thread_entry()
 								{
 										printf("%c",shell->cmd[shell->curpos]);
 										shell->curpos++;
-								}	
+								}
 								//printf("left");
 								continue;
 						}
