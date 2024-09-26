@@ -82,6 +82,7 @@ int __ky_ffs(int value)
 
 void show_version(void)
 {
+		
 		printf("--------------------\r\n");
 		printf("|      welcome     |\r\n");
 		printf("|     ky-thread    |\r\n");

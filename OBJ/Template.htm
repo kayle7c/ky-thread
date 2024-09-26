@@ -3,11 +3,11 @@
 <title>Static Call Graph - [..\OBJ\Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Sep 20 22:42:20 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Sep 26 15:00:33 2024
 <BR><P>
-<H3>Maximum Stack Usage =        192 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        216 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; kythread_startup &rArr; show_version &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+shell_thread_entry &rArr; shell_auto_complete &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 <P>
 <H3>
 Functions with no stack information
@@ -443,7 +443,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
-<BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_ps
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kythread_startup
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_ps
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_help
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_clear
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_thread_entry
@@ -1121,11 +1122,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_suspend
 </UL>
 
-<P><STRONG><a name="[a1]"></a>kythread_startup</STRONG> (Thumb, 120 bytes, Stack size 16 bytes, components.o(i.kythread_startup))
+<P><STRONG><a name="[a1]"></a>kythread_startup</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, components.o(i.kythread_startup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
 <LI>Call Chain = kythread_startup &rArr; show_version &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_shell_init
+<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_shell_init
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_system_timer_init
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ky_thread_idle_init
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_version
@@ -1149,8 +1151,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[a4]"></a>shell_auto_complete</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, shell.o(i.shell_auto_complete))
-<BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
+<P><STRONG><a name="[a4]"></a>shell_auto_complete</STRONG> (Thumb, 204 bytes, Stack size 72 bytes, shell.o(i.shell_auto_complete))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
 <LI>Call Chain = shell_auto_complete &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
@@ -1180,8 +1182,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shell_thread_entry
 </UL>
 
-<P><STRONG><a name="[3c]"></a>shell_thread_entry</STRONG> (Thumb, 940 bytes, Stack size 0 bytes, shell.o(i.shell_thread_entry))
-<BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
+<P><STRONG><a name="[3c]"></a>shell_thread_entry</STRONG> (Thumb, 520 bytes, Stack size 0 bytes, shell.o(i.shell_thread_entry))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
 <LI>Call Chain = shell_thread_entry &rArr; shell_auto_complete &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr

@@ -8,6 +8,7 @@ void kythread_startup(void)
 	
 		uart_init(9600);
 	
+		printf("\033[2J\033[H");
 		show_version();
 		
 		rt_hw_interrupt_disable();
