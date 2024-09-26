@@ -10,6 +10,7 @@ typedef signed   char         ky_int8_t;
 typedef unsigned char         ky_uint8_t; 
 typedef unsigned short        ky_uint16_t;
 
+typedef int                   ky_bool_t; 
 typedef long									ky_base_t; 
 typedef unsigned long         ky_ubase_t;
 
@@ -20,6 +21,9 @@ typedef ky_uint32_t           ky_tick_t;
 
 #define ky_inline             static __inline
 #define ALIGN(n)              __attribute__((aligned(n)))
+
+#define KY_TRUE                         1               /**< boolean true  */
+#define KY_FALSE                        0               /**< boolean fails */
 	
 #define KY_EOK                          0               /**< There is no error */
 #define KY_ERROR                        1               /**< A generic error happens */
@@ -163,6 +167,22 @@ struct ky_thread
 		struct ky_timer thread_timer; //内置的线程定时器
 };
 typedef struct ky_thread *ky_thread_t;
+
+//ipc
+
+#define KY_IPC_FLAG_FIFO                0x00           
+#define KY_IPC_FLAG_PRIO                0x01           
+
+#if KY_USING_SEMAPHORE
+struct ky_semaphore
+{
+		ky_uint8_t flag;
+		ky_list_t suspend_thread;        //挂起队列
+		ky_uint16_t value;
+};
+typedef struct ky_semaphore *ky_sem_t;
+#endif
+
 #endif
 
 

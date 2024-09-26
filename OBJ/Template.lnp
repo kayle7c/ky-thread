@@ -42,6 +42,7 @@
 "..\obj\irq.o"
 "..\obj\timer.o"
 "..\obj\components.o"
+"..\obj\ipc.o"
 "..\obj\shell.o"
 "..\obj\cmd.o"
 "..\obj\ringbuffer.o"

@@ -19,18 +19,14 @@ ky_err_t ky_thread_init(struct ky_thread *thread,
 												ky_uint8_t priority,
 												ky_uint32_t tick);
 												
-ky_err_t ky_thread_delay(ky_tick_t tick);
-												
+ky_err_t ky_thread_delay(ky_tick_t tick);										
 void ky_thread_delay_ms(ky_tick_t ms);
-
-void ky_thread_delay_s(ky_tick_t s);												
-												
-ky_err_t ky_thread_startup(ky_thread_t thread);
-												
-ky_thread_t ky_thread_self(void);						
-												
+void ky_thread_delay_s(ky_tick_t s);																							
+ky_err_t ky_thread_startup(ky_thread_t thread);				
+ky_err_t ky_thread_suspend(ky_thread_t thread);		
+ky_err_t ky_thread_resume(ky_thread_t thread);												
+ky_thread_t ky_thread_self(void);																	
 void ky_thread_timeout(void *parameter);   		
-
 ky_err_t ky_thread_yeild(void);												
 
 //内核对象接口
@@ -80,5 +76,12 @@ void kythread_startup(void);
 
 //shell接口
 void ky_shell_init(void);									 
+
+//sem信号量接口
+ky_err_t ky_sem_release(ky_sem_t sem);
+ky_err_t ky_sem_take(ky_sem_t sem,ky_int32_t time);
+ky_sem_t ky_sem_creat(const char *name,
+											ky_uint16_t value,
+											ky_uint8_t flag);
 
 #endif
