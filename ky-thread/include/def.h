@@ -171,7 +171,9 @@ typedef struct ky_thread *ky_thread_t;
 //ipc
 
 #define KY_IPC_FLAG_FIFO                0x00           
-#define KY_IPC_FLAG_PRIO                0x01           
+#define KY_IPC_FLAG_PRIO                0x01     
+
+#define KY_WAITING_FOREVER							-1
 
 #if KY_USING_SEMAPHORE
 struct ky_semaphore

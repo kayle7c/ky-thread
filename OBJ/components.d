@@ -39,3 +39,4 @@
 ..\obj\components.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\components.o: ..\ky-thread\components\ipc\include\ringbuffer.h
 ..\obj\components.o: ..\Hardware\led.h
+..\obj\components.o: ..\SYSTEM\delay\delay.h

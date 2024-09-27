@@ -3,6 +3,7 @@
 #include "sys.h"
 
 void LED_Init(void);//≥ı ºªØ
+void KEY_Init(void);
 
 		 				    
 #endif

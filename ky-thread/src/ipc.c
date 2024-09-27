@@ -36,7 +36,8 @@ ky_sem_t ky_sem_creat(const char *name,
 											ky_uint8_t flag)
 {
 		struct ky_semaphore *sem = &semaphores[sem_index++];
-		
+		ky_list_init(&sem->suspend_thread);
+	
 		sem->value=value;
 		sem->flag=flag;
 		return sem;

@@ -1,10 +1,13 @@
 #include "thread.h"
 #include "led.h"
 #include "usart.h"
+#include "delay.h"
 
 void kythread_startup(void)
-{
+{	
 		LED_Init();
+	
+		KEY_Init();
 	
 		uart_init(9600);
 	
