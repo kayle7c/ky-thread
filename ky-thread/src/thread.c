@@ -224,3 +224,8 @@ ky_err_t ky_thread_yeild(void)
 		
 		return KY_EOK;
 }
+
+ky_err_t ky_thread_control(ky_thread_t thread,int cmd,void *arg)
+{
+		
+}

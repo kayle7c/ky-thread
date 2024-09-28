@@ -21,4 +21,7 @@
 #define KY_USING_SEMAPHORE          1
 #define KY_SEM_NUM_MAX							50
 
+#define KY_USING_MUTEX         		  1
+#define KY_MUTEX_NUM_MAX						50
+
 #endif

@@ -84,4 +84,7 @@ ky_sem_t ky_sem_creat(const char *name,
 											ky_uint16_t value,
 											ky_uint8_t flag);
 
+//mutex»¥³âÁ¿½Ó¿Ú
+ky_mutex_t ky_mutex_creat(const char* name,ky_uint8_t flag);
+
 #endif

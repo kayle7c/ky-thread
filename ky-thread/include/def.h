@@ -183,6 +183,18 @@ struct ky_semaphore
 		ky_uint16_t value;
 };
 typedef struct ky_semaphore *ky_sem_t;
+
+struct ky_mutex
+{
+		ky_uint8_t   flag;
+		ky_uint16_t  value;
+		ky_uint8_t   original_priority;    //持有互斥量的线程的原始优先级
+		ky_uint8_t   hold;                 //持有互斥量的线程的持有次数
+	
+		ky_list_t suspend_thread;        //挂起队列
+		struct ky_thread *owner;              //持有互斥量的线程 
+};
+typedef struct ky_mutex *ky_mutex_t;
 #endif
 
 #endif
