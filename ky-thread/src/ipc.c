@@ -215,11 +215,17 @@ ky_err_t ky_mutex_take(ky_mutex_t mutex,ky_int32_t time)
 						}
 						else
 						{
-								if(thread->current_priority<mutex->owner->current_priority)
-								{
-									
+								if(thread->current_priority < mutex->owner->current_priority)
+								{	
+										//优先级翻转
+										ky_thread_control(mutex->owner,KY_THREAD_CTRL_CHANGE_PRIORITY,&thread->current_priority);								
 								}
-							
+								ky_ipc_list_suspend(&mutex->suspend_thread,thread,mutex->flag);
+								if(time>0)
+								{
+										ky_timer_control(&thread->thread_timer,KY_TIMER_CTRL_SET_TIME,&time);
+										ky_timer_start(&(thread->thread_timer));
+								}
 						}
 					
 				}

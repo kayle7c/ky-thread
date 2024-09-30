@@ -27,7 +27,8 @@ ky_err_t ky_thread_suspend(ky_thread_t thread);
 ky_err_t ky_thread_resume(ky_thread_t thread);												
 ky_thread_t ky_thread_self(void);																	
 void ky_thread_timeout(void *parameter);   		
-ky_err_t ky_thread_yeild(void);												
+ky_err_t ky_thread_yeild(void);								
+ky_err_t ky_thread_control(ky_thread_t thread,int cmd,void *arg);												
 
 //内核对象接口
 void ky_object_init(struct ky_object *object,

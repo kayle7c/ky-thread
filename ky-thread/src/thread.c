@@ -227,5 +227,31 @@ ky_err_t ky_thread_yeild(void)
 
 ky_err_t ky_thread_control(ky_thread_t thread,int cmd,void *arg)
 {
+		register ky_base_t temp;
+	
+		switch(cmd)
+		{
+		case KY_THREAD_CTRL_CHANGE_PRIORITY:
+				temp = rt_hw_interrupt_disable();	
 		
+				if((thread->stat & KY_THREAD_STAT_MASK)==KY_THREAD_READY)
+				{
+						ky_schedule_remove_thread(thread);
+						
+						thread->current_priority=*(ky_uint8_t *)arg;
+					
+						thread->number_mask=1<<thread->current_priority;
+					
+						ky_schedule_insert_thread(thread);
+				}
+				else
+				{
+						thread->current_priority=*(ky_uint8_t *)arg;
+					
+						thread->number_mask=1<<thread->current_priority;
+				}
+				rt_hw_interrupt_enable(temp);
+				break;
+		}
+		return KY_EOK;
 }

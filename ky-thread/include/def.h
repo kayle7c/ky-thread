@@ -50,6 +50,17 @@ typedef ky_uint32_t           ky_tick_t;
 #define KY_THREAD_STAT_SIGNAL_SUSPEND   0x20
 #define KY_THREAD_STAT_SIGNAL_MASK      0xf0
 
+#define KY_THREAD_CTRL_STARTUP          0x00                /**< Startup thread. */
+#define KY_THREAD_CTRL_CLOSE            0x01                /**< Close thread. */
+#define KY_THREAD_CTRL_CHANGE_PRIORITY  0x02                /**< Change thread priority. */
+#define KY_THREAD_CTRL_INFO             0x03                /**< Get thread information. */
+#define KY_THREAD_CTRL_BIND_CPU         0x04                /**< Set thread bind cpu. */
+
+#define KY_THREAD_CTRL_STARTUP          0x00                /**< Startup thread. */
+#define KY_THREAD_CTRL_CLOSE            0x01                /**< Close thread. */
+#define KY_THREAD_CTRL_CHANGE_PRIORITY  0x02                /**< Change thread priority. */
+#define KY_THREAD_CTRL_INFO             0x03                /**< Get thread information. */
+
 #define KY_UINT8_MAX                    0xff            /**< Maxium number of UINT8 */
 #define KY_UINT16_MAX                   0xffff          /**< Maxium number of UINT16 */
 #define KY_UINT32_MAX                   0xffffffff      /**< Maxium number of UINT32 */
