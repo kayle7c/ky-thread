@@ -59,7 +59,7 @@ void ky_tick_increase(void)
 		{
 				thread->remaining_tick = thread->init_tick;
 				
-				ky_thread_yeild();
+				ky_thread_yield();
 		}
 	
 		ky_timer_check();

@@ -21,7 +21,9 @@ ky_uint8_t ky_test3_thread_stack[512];
 ky_uint8_t ky_test4_thread_stack[512];
 
 static ky_sem_t sem = KY_NULL;
+static ky_mutex_t mutex=KY_NULL;
 
+uint8_t ucValue [ 2 ] = { 0x00, 0x00 };
 
 void test1_thread_entry()
 {
@@ -51,54 +53,36 @@ void test2_thread_entry()
 
 void test3_thread_entry()
 {
-		ky_err_t t=KY_EOK;
 		while(1)
 		{
-				if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1)==0)
-				{
-						t=ky_sem_take(sem,0);
-						if(t==KY_EOK)
-						{
-								printf("success\r\n");
-						}
-						else
-						{
-							printf("failed\r\n");
-						}
-				}
-        ky_thread_delay_ms(200);
+				ky_mutex_take(mutex,KY_WAITING_FOREVER);
+				if(ucValue[0]==ucValue[1]) printf("successful!");
+				else printf("fail!");
+			
+				ky_mutex_release(mutex);
+				ky_thread_delay(1000);
 		}
 }
 
 void test4_thread_entry()
 {
-		ky_err_t t=KY_EOK;
 		while(1)
 		{
-				if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_11)==0)
-				{
-						t=ky_sem_release(sem);
-						if(t==KY_EOK)
-						{
-								printf("release\r\n");
-						}
-						else
-						{
-							printf("cant release\r\n");
-						}
-				}
-        ky_thread_delay_ms(200);
+				ky_mutex_take(mutex,KY_WAITING_FOREVER);
+				ucValue[0]++;
+				ky_thread_delay_ms(200);
+				ucValue[1]++;
+				ky_mutex_release(mutex);
+				ky_thread_yield();
 		}
 }
-
-
 
 int main()
 {
 		kythread_startup();
 	
-		sem=ky_sem_creat("test_sem",5,KY_IPC_FLAG_FIFO);
-	
+		//sem=ky_sem_creat("test_sem",5,KY_IPC_FLAG_FIFO);
+		mutex=ky_mutex_creat("test_mutex",KY_IPC_FLAG_FIFO);
 	  //创建线程
 	  ky_thread_init(&ky_test1_thread,
 									"test1",

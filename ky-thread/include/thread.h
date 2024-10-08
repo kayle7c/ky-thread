@@ -27,7 +27,7 @@ ky_err_t ky_thread_suspend(ky_thread_t thread);
 ky_err_t ky_thread_resume(ky_thread_t thread);												
 ky_thread_t ky_thread_self(void);																	
 void ky_thread_timeout(void *parameter);   		
-ky_err_t ky_thread_yeild(void);								
+ky_err_t ky_thread_yield(void);								
 ky_err_t ky_thread_control(ky_thread_t thread,int cmd,void *arg);												
 
 //内核对象接口
@@ -87,5 +87,6 @@ ky_sem_t ky_sem_creat(const char *name,
 
 //mutex互斥量接口
 ky_mutex_t ky_mutex_creat(const char* name,ky_uint8_t flag);
-
+ky_err_t ky_mutex_take(ky_mutex_t mutex,ky_int32_t time);
+ky_err_t ky_mutex_release(ky_mutex_t mutex);
 #endif

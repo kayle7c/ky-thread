@@ -199,7 +199,7 @@ ky_err_t ky_mutex_take(ky_mutex_t mutex,ky_int32_t time)
 				//互斥量大于0，就可以获取互斥量
 				if(mutex->value > 0)
 				{
-						mutex->value++;
+						mutex->value--;
 						mutex->owner=thread;
 						mutex->original_priority=thread->current_priority;
 						mutex->hold++;
@@ -226,10 +226,74 @@ ky_err_t ky_mutex_take(ky_mutex_t mutex,ky_int32_t time)
 										ky_timer_control(&thread->thread_timer,KY_TIMER_CTRL_SET_TIME,&time);
 										ky_timer_start(&(thread->thread_timer));
 								}
+								rt_hw_interrupt_enable(temp);
+								
+								ky_schedule();
 						}
 					
-				}
-			
+				}			
 		}
+		rt_hw_interrupt_enable(temp);
+		
+		return KY_EOK;
 }
 
+ky_err_t ky_mutex_release(ky_mutex_t mutex)
+{
+		register ky_base_t temp;
+		struct ky_thread *thread;
+		ky_bool_t need_schedule;
+	
+		need_schedule = KY_FALSE;
+	
+		thread=ky_thread_self();
+	
+		temp = rt_hw_interrupt_disable();
+	
+		//互斥量只能由持有者释放
+		if(thread!=mutex->owner)
+		{
+				thread->error=-KY_ERROR;
+			
+				rt_hw_interrupt_enable(temp);
+			
+				return -KY_ERROR;
+		}
+		mutex->hold--;
+		//没有持有量时，取消优先级翻转
+		if(mutex->hold==0)
+		{
+				if(mutex->original_priority != mutex->owner->current_priority)
+				{
+						ky_thread_control(mutex->owner,KY_THREAD_CTRL_CHANGE_PRIORITY,&thread->current_priority);
+				}
+			
+				if(!ky_list_isempty(&mutex->suspend_thread))
+				{
+						thread = ky_list_entry(mutex->suspend_thread.next,
+                                struct ky_thread,
+                                tlist);  
+																
+						mutex->owner=thread;
+						mutex->original_priority=thread->current_priority;
+						mutex->hold++;
+																
+						ky_ipc_list_resume(&mutex->suspend_thread);
+
+						need_schedule=KY_TRUE;											
+				}
+				else
+				{
+						mutex->value++;
+						mutex->owner=KY_NULL;
+						mutex->original_priority = 0xff;
+				}
+		}
+		
+		rt_hw_interrupt_enable(temp);
+		if(need_schedule==KY_TRUE)
+		{
+				ky_schedule();
+		}
+		return KY_EOK;
+}

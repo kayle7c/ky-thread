@@ -194,7 +194,7 @@ void ky_thread_timeout(void *parameter) //´Ë´¦µÄparameter²ÎÊı¾ÍÊÇ¸ÃÏß³ÌµÄº¯ÊıÈë¿
 }
 
 //Èç¹ûÊ±¼äÆ¬µ½ÁËÈÃ³ö´¦ÀíÆ÷
-ky_err_t ky_thread_yeild(void)
+ky_err_t ky_thread_yield(void)
 {
 		register ky_base_t level;
 		struct ky_thread *thread;
@@ -252,6 +252,8 @@ ky_err_t ky_thread_control(ky_thread_t thread,int cmd,void *arg)
 				}
 				rt_hw_interrupt_enable(temp);
 				break;
+				
+		
 		}
 		return KY_EOK;
 }
